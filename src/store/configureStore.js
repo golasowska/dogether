@@ -1,11 +1,20 @@
-import { createStore } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
+import reduxThunk from 'redux-thunk';
 import rootReducer from '../reducers';
+import createHistory from 'history/createBrowserHistory';
+import { routerMiddleware } from 'react-router-redux';
+import * as Actions from '../actions';
 
-export default function configureStore(initialState) {
+export const history = createHistory();
+
+export function configureStore(initialState) {
   const store = createStore(
     rootReducer,
     initialState,
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__() : undefined
+    compose (
+      applyMiddleware(reduxThunk, routerMiddleware(history)),
+      window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__() : undefined
+    )
   );
 
   if (module.hot) {
@@ -14,6 +23,8 @@ export default function configureStore(initialState) {
       store.replaceReducer(nextRootReducer);
     });
   }
+
+  store.dispatch(Actions.verifyAuth());
 
   return store;
 }
