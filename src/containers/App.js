@@ -7,6 +7,10 @@ import { connect } from 'react-redux';
 import Login from './Login';
 import Signup from './Signup';
 import Home from './Home';
+import Gallery from './Gallery';
+import DogFriendly from './DogFriendly';
+import Vet from './Vet';
+import Adoption from './Adoption';
 
 const PrivateRoute = ({ component: Component, authenticated, ...props}) => {
   return (
@@ -39,6 +43,10 @@ class App extends React.Component {
           <PublicRoute authenticated={ this.props.authenticated } exact path='/' component= { Login } />
           <PublicRoute authenticated={ this.props.authenticated } path='/signup' component= { Signup } />
           <PrivateRoute authenticated={ this.props.authenticated } path='/home' component = {  Home } />
+          <PrivateRoute authenticated= {this.props.authenticated } path='/gallery' component = { Gallery } />
+          <PrivateRoute authenticated= {this.props.authenticated} path='/dog-friendly' component = { DogFriendly } />
+          <PrivateRoute authenticated = {this.props.authenticated} path='/vet' component = { Vet } />
+          <PrivateRoute authenticated = { this.props.authenticated} path='/adoption' component = { Adoption } />
         </div>
       </ConnectedRouter>
     );

@@ -2,6 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import * as Actions from '../actions';
+import { Link } from 'react-router-dom';
 
 const validate = values => {
   const errors = {};
@@ -53,6 +54,7 @@ class Login extends React.Component {
             <Field name='password' component={this.renderField} className='form-control' type='password' label='Password' />
 
             <button action='submit' className='btn btn-primary'>Sign In</button>
+            <Link to='/signup' className='btn btn-info'>Not a member? Register now! </Link>
           </form>
         </div>
       </div>
