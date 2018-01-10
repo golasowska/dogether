@@ -30,7 +30,6 @@ const validate = values => {
 class Signup extends React.Component {
   handleFormSubmit = (values) => {
     this.props.signUpUser(values);
-    console.log('zarejestrowany');
   };
 
   renderField = ({ input, label, type, meta: {touched, error}}) => (

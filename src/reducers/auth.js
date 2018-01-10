@@ -7,8 +7,6 @@ const initialState = {
 
 
 export default function auth(state = initialState, action ) {
-  console.log('action payload', action.payload);
-  console.log('auth state', state.authenticated);
   switch (action.type) {
     case AUTH_USER:
     return {

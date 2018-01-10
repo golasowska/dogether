@@ -3,6 +3,7 @@ import Firebase from 'firebase';
 export const SIGN_OUT_USER = 'SIGN_OUT_USER';
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const AUTH_USER = 'AUTH_USER';
+export const NEW_ARTICLE = 'NEW_ARTICLE';
 
 const config = {
     apiKey: "AIzaSyDjmyqfb-Olrz8xpTzK6B5Ry_x29Ut7dW4",
@@ -14,6 +15,8 @@ const config = {
   };
 
   Firebase.initializeApp(config);
+
+  const artDatabase = Firebase.database().ref('newArticle');
 
   export function signUpUser(credentials) {
     return function(dispatch) {
@@ -73,5 +76,22 @@ const config = {
     return {
       type: AUTH_ERROR,
       payload: error
+    }
+  }
+
+  export function createNewArticle(article) {
+    const userUid = Firebase.auth().currentUser.uid;
+    return function(dispatch) {
+      artDatabase.push({
+        user: userUid,
+        title: article.title,
+        content: article.content
+      })
+      .then(response =>{
+        dispatch({
+          type: NEW_ARTICLE,
+          payload: article
+        })
+      })
     }
   }
