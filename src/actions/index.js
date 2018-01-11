@@ -6,18 +6,20 @@ export const AUTH_USER = 'AUTH_USER';
 export const NEW_ARTICLE = 'NEW_ARTICLE';
 export const DISPLAY_ARTICLES = 'DISPLAY_ARTICLES';
 
+
 const config = {
     apiKey: "AIzaSyDjmyqfb-Olrz8xpTzK6B5Ry_x29Ut7dW4",
     authDomain: "dogether-d802f.firebaseapp.com",
     databaseURL: "https://dogether-d802f.firebaseio.com",
     projectId: "dogether-d802f",
-    storageBucket: "",
+    storageBucket: "dogether-d802f.appspot.com",
     messagingSenderId: "375326882369"
   };
 
   Firebase.initializeApp(config);
 
   const artDatabase = Firebase.database().ref('newArticle');
+  const storage = Firebase.storage().ref();
 
   export function signUpUser(credentials) {
     return function(dispatch) {
@@ -81,17 +83,22 @@ const config = {
   }
 
   export function createNewArticle(article) {
+    const { title, picture, content} = article;
     const userUid = Firebase.auth().currentUser.uid;
+    const id= `${userUid}${new Date().getTime()}`
     return function(dispatch) {
-      artDatabase.push({
-        user: userUid,
-        title: article.title,
-        content: article.content
-      })
-      .then(response =>{
-        dispatch({
-          type: NEW_ARTICLE,
-          payload: article
+      storage.child(`images/${id}`).put(picture[0]).then((snapshot) => {
+        artDatabase.push({
+          id: id,
+          title: title,
+          content: content,
+          picture: snapshot.metadata.downloadURLs[0]
+        })
+        .then(response =>{
+          dispatch({
+            type: NEW_ARTICLE,
+            payload: article
+          })
         })
       })
     }

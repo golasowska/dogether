@@ -1,8 +1,9 @@
 import React from 'react';
+import PreviewPicture from '../containers/PreviewPicture';
 
 export default class ArticleData extends React.Component{
   render(){
-    const {title, content, id} = this.props.article
+    const {title, content, id, picture} = this.props.article
     return (
       <div>
         <div>
@@ -12,7 +13,7 @@ export default class ArticleData extends React.Component{
           <div>Content : {content}</div>
         </div>
         <div>
-          <div>key : {id}</div>
+          <PreviewPicture pictureUrl={picture} />
         </div>
       </div>
     )

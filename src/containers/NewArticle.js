@@ -3,6 +3,7 @@ import { Field, reduxForm} from 'redux-form';
 import { connect } from 'react-redux';
 import * as Actions  from '../actions';
 import Navigation from './Navigation';
+import FileField from './FileField';
 
 const validate = values => {
   const errors = {};
@@ -53,7 +54,7 @@ class NewArticle extends React.Component{
           <form onSubmit={this.props.handleSubmit(this.handleFormSubmit)}>
             <Field name='title' type='text' component={this.renderTextArea} label='Title' />
             <Field name='content' type='text' component={this.renderTextArea} label='Article content' />
-
+            <Field name='picture' type='picture' component={FileField} label='Picture' />
             <button action='submit' className='btn btn-primary'>Add article</button>
           </form>
         </div>
