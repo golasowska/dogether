@@ -2,6 +2,7 @@ import React from 'react';
 import { Field, reduxForm} from 'redux-form';
 import { connect } from 'react-redux';
 import * as Actions  from '../actions';
+import Navigation from './Navigation';
 
 const validate = values => {
   const errors = {};
@@ -43,7 +44,8 @@ class NewArticle extends React.Component{
   );
 
   render() {
-    return (
+    return ( <div>
+      <Navigation />
       <div className='container'>
         <div className='col-md-6 col-md-offset-3'>
           <h2 className='text-center'>New Article</h2>
@@ -55,6 +57,7 @@ class NewArticle extends React.Component{
             <button action='submit' className='btn btn-primary'>Add article</button>
           </form>
         </div>
+      </div>
       </div>
     )
   }

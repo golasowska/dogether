@@ -4,6 +4,7 @@ import { Route, Redirect } from 'react-router-dom';
 import { history } from '../store/configureStore';
 import { connect } from 'react-redux';
 
+
 import Login from './Login';
 import Signup from './Signup';
 import Home from './Home';
@@ -11,6 +12,7 @@ import Gallery from './Gallery';
 import DogFriendly from './DogFriendly';
 import Vet from './Vet';
 import Adoption from './Adoption';
+import NewArticle from './NewArticle';
 
 const PrivateRoute = ({ component: Component, authenticated, ...props}) => {
   return (
@@ -47,6 +49,7 @@ class App extends React.Component {
           <PrivateRoute authenticated= {this.props.authenticated} path='/dog-friendly' component = { DogFriendly } />
           <PrivateRoute authenticated = {this.props.authenticated} path='/vet' component = { Vet } />
           <PrivateRoute authenticated = { this.props.authenticated} path='/adoption' component = { Adoption } />
+          <PrivateRoute authenticated = { this.props.authenticated} path = '/newarticle' component = { NewArticle } />
         </div>
       </ConnectedRouter>
     );

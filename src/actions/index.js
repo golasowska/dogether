@@ -4,6 +4,7 @@ export const SIGN_OUT_USER = 'SIGN_OUT_USER';
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const AUTH_USER = 'AUTH_USER';
 export const NEW_ARTICLE = 'NEW_ARTICLE';
+export const DISPLAY_ARTICLES = 'DISPLAY_ARTICLES';
 
 const config = {
     apiKey: "AIzaSyDjmyqfb-Olrz8xpTzK6B5Ry_x29Ut7dW4",
@@ -93,5 +94,14 @@ const config = {
           payload: article
         })
       })
+    }
+  }
+
+  export function displayArticles() {
+    return function(dispatch) {
+      artDatabase.on('value', snapshot => {dispatch({
+        type: DISPLAY_ARTICLES,
+        payload: snapshot.val()
+      })})
     }
   }
