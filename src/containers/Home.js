@@ -15,14 +15,14 @@ class Home extends React.Component{
 
 
   showArticle=()=>{
-    for (const key of Object.keys(this.props.articles)){
-      console.log(key, this.props.articles[key]);
-      this.props.articles[key].id=(key);
-      console.log(this.props.articles);
+    if (this.props.articles) {
+      for (const key of Object.keys(this.props.articles)){
+        this.props.articles[key].key=(key);
+      }
     }
-    return _.map(this.props.articles, article=>{
-      return <ArticleData key={article.id} article={article}/>
-  })
+      return _.map(this.props.articles, article=>{
+        return <ArticleData key={article.key} article={article}/>
+    })
 }
 
 

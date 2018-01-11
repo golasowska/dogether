@@ -82,7 +82,7 @@ const config = {
     }
   }
 
-  export function createNewArticle(article) {
+  export function createNewArticle(article, callback) {
     const { title, picture, content} = article;
     const userUid = Firebase.auth().currentUser.uid;
     const id= `${userUid}${new Date().getTime()}`
@@ -92,15 +92,13 @@ const config = {
           id: id,
           title: title,
           content: content,
-          picture: snapshot.metadata.downloadURLs[0]
+          picture: snapshot.metadata.downloadURLs[0]})
         })
-        .then(response =>{
+        callback()
           dispatch({
             type: NEW_ARTICLE,
             payload: article
-          })
         })
-      })
     }
   }
 

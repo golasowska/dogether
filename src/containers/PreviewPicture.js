@@ -14,7 +14,7 @@ const PreviewPicture = (props) => {
     );
   } else {
     return(
-      <img className='img-fluid mb-2 mt-2' src={pictureUrl} />
+      <img className='img-fluid mb-2 mt-2' src={pictureUrl} alt='dogs' />
     );
   }
 }

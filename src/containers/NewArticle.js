@@ -28,10 +28,9 @@ if (!values.title) {
 class NewArticle extends React.Component{
 
   handleFormSubmit = (values) => {
-    this.props.createNewArticle(values);
-
-    console.log('values art ', values);
-    console.log('dlugosc', values.title.length);
+    this.props.createNewArticle(values, ()=>{
+      this.props.history.push('/home');
+    })
   }
 
   renderTextArea = ({ input, label, type, meta: { touched, error}}) => (
