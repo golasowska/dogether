@@ -38,7 +38,7 @@ class NewArticle extends React.Component{
       <label className='control-label'>{label}</label>
         <div>
           <textarea {...input} placeholder={label} className='form-control' type={type} />
-           {touched && error && <div className='help-block'>{error}</div>}
+           {touched && error && <div className='alert alert-danger'>{error}</div>}
         </div>
     </fieldset>
   );

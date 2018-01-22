@@ -5,6 +5,7 @@ export const AUTH_ERROR = 'AUTH_ERROR';
 export const AUTH_USER = 'AUTH_USER';
 export const NEW_ARTICLE = 'NEW_ARTICLE';
 export const DISPLAY_ARTICLES = 'DISPLAY_ARTICLES';
+export const ADD_VET = 'ADD_VET';
 
 
 const config = {
@@ -19,6 +20,7 @@ const config = {
   Firebase.initializeApp(config);
 
   const artDatabase = Firebase.database().ref('newArticle');
+  const vetDatabase = Firebase.database().ref('Vets');
   const storage = Firebase.storage().ref();
 
   export function signUpUser(credentials) {
@@ -108,5 +110,25 @@ const config = {
         type: DISPLAY_ARTICLES,
         payload: snapshot.val()
       })})
+    }
+  }
+
+  export function addVet(values, callback) {
+    const { vet, streetName, streetNumber, phone, www } = values;
+    const userUid = Firebase.auth().currentUser.uid;
+    return function(dispatch) {
+      vetDatabase.push({
+        id: userUid,
+        vet: vet,
+        streetName: streetName,
+        streetNumber: streetNumber,
+        phone: phone,
+        www: www
+      })
+      callback()
+      dispatch({
+        type: ADD_VET,
+        payload: values
+      })
     }
   }
