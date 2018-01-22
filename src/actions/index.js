@@ -6,6 +6,7 @@ export const AUTH_USER = 'AUTH_USER';
 export const NEW_ARTICLE = 'NEW_ARTICLE';
 export const DISPLAY_ARTICLES = 'DISPLAY_ARTICLES';
 export const ADD_VET = 'ADD_VET';
+export const DISPLAY_VETS = 'DISPLAY_VETS';
 
 
 const config = {
@@ -130,5 +131,14 @@ const config = {
         type: ADD_VET,
         payload: values
       })
+    }
+  }
+
+  export function displayVets() {
+    return function(dispatch) {
+      vetDatabase.on('value', snapshot => {dispatch({
+        type: DISPLAY_VETS,
+        payload: snapshot.val()
+      })})
     }
   }
