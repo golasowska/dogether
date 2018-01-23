@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 
 import DogFriendlyData from './DogFriendlyData';
+import SearchBar from './SearchBar';
 
 class DogFriendly extends React.Component{
 
@@ -30,6 +31,7 @@ class DogFriendly extends React.Component{
         <div>
           <Navigation />
           <Link className='btn btn-info btn-lg btn-block mt-4 mb-4' to='/adddogfriendly'>Add a place</Link>
+          <SearchBar />
           <div className='text-center'>
             {this.showDogFriendly()}
           </div>

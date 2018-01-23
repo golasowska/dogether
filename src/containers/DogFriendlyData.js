@@ -10,7 +10,7 @@ export default class DogFriendlyData extends React.Component {
                   <h4 className='card-title'>{place}</h4>
                   <p className='card-text'>Tags: {tags}</p>
                   <p className='card-text'>Description: {description}</p>
-                  <p className='card-text'><a target='_blank' href={`https://${www}`}>Website: {www}</a></p>
+                  <p className='card-text'><a target='_blank' href={`http://${www}`}>Website: {www}</a></p>
                   </div>
               </div>
             </div>)

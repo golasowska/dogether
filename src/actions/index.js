@@ -9,6 +9,7 @@ export const ADD_VET = 'ADD_VET';
 export const DISPLAY_VETS = 'DISPLAY_VETS';
 export const ADD_DOG_FRIENDLY = 'ADD_DOG_FRIENDLY';
 export const DISPLAY_DOG_FRIENDLY = 'DISPLAY_DOG_FRIENDLY';
+export const DISPLAY_DF_TAGS = 'DISPLAY_DF_TAGS'
 
 
 const config = {
@@ -171,5 +172,18 @@ const config = {
         type: DISPLAY_DOG_FRIENDLY,
         payload: snapshot.val()
       })})
+    }
+  }
+
+  export function fetchDfTags(values) {
+    const value = values.title;
+    return function(dispatch) {
+      dogFriendlyDatabase.orderByChild('tags').equalTo(value).on('value', snapshot =>
+      {console.log('snapshot.key, snapshot.val', snapshot.val())
+        dispatch({
+        type: DISPLAY_DF_TAGS,
+        payload: snapshot.val()
+      })
+    })
     }
   }
