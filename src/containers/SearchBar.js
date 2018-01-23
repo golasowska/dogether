@@ -20,7 +20,7 @@ class SearchBar extends React.Component{
 
   renderTextField = ({ input, label, type, meta : { touched, error }}) => {
     return (
-      <fieldset className='form-group'>
+      <fieldset className='form-group d-inline-block'>
         <label className='label-control mt-4'>{ label }</label>
         <div>
           <input {...input} placeholder={label} className='form-control' type={type}/>
@@ -37,7 +37,7 @@ class SearchBar extends React.Component{
             <div className='col-10 col-sm-6 col-md-4'>
               <form onSubmit={this.props.handleSubmit(this.handleFormSubmit)}>
                 <Field name='title' type='text' component={this.renderTextField} label='Searching for...' />
-                <button type='submit' className='btn btn-primary'>Search</button>
+                <button type='submit' className='btn bmd-btn-icon'><i className="material-icons">search</i></button>
               </form>
             </div>
           </div>

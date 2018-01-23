@@ -5,6 +5,8 @@ import * as Actions from '../actions';
 
 import Navigation from './Navigation';
 
+const tags = [ 'restaurant', 'breakfast', 'coffee', 'park' ]
+
 const validate = values => {
   const errors = {};
 
@@ -41,7 +43,23 @@ class AddDogFriendly extends React.Component{
           { touched && error && <div className='alert alert-danger'>{ error }</div>}
         </div>
     </fieldset>
-  );
+  )
+
+
+
+  renderDropdownList = ({ input, label, type, meta : { touched, error}}) => (
+          <fieldset className={`form-group ${touched && error ? 'has-error' : ''}`}>
+              <label className='control-label'>{label}</label>
+              <div>
+                <select {...input} className='form-control' type={type} placeholder={label}>
+                  <option></option>
+                  {tags.map(tag=> <option value={tag} key={tag}>{tag}</option>)}
+                </select>
+                { touched && error && <div className='alert alert-danger'>{ error }</div>}
+                </div>
+            </fieldset>
+  )
+
 
   render(){
     return <div>
@@ -52,10 +70,10 @@ class AddDogFriendly extends React.Component{
 
           <form onSubmit={this.props.handleSubmit(this.handleFormSubmit)}>
             <Field name='place' type='text' component={this.renderTextArea} label='Add a place' />
-            <Field name='tags' type='text' component={this.renderTextArea} label='Add tags' />
             <Field name='description' type='text' component={this.renderTextArea} label='Add description' />
             <Field name='www' type='text' component={this.renderTextArea} label='Add website' />
-            <button action='submit' className='btn btn-primary'>Add a place</button>
+            <Field name='tags' type='select' component={this.renderDropdownList} label='Add a tag'/>
+            <button action='submit' className='btn btn-primary mt-4'>Add a place</button>
           </form>
         </div>
       </div>

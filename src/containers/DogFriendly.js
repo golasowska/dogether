@@ -14,6 +14,10 @@ class DogFriendly extends React.Component{
     this.props.displayDogFriendly();
   }
 
+  showAllData=()=>{
+    this.props.displayDogFriendly();
+  }
+
   showDogFriendly=()=>{
     if(this.props.dogFriendly){
       for(const key of Object.keys(this.props.dogFriendly)){
@@ -32,6 +36,7 @@ class DogFriendly extends React.Component{
           <Navigation />
           <Link className='btn btn-info btn-lg btn-block mt-4 mb-4' to='/adddogfriendly'>Add a place</Link>
           <SearchBar />
+          <button className='btn btn-info btn-lg btn-block mt-4 mb-4' onClick={this.showAllData}>Show all places</button>
           <div className='text-center'>
             {this.showDogFriendly()}
           </div>
