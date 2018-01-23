@@ -8,6 +8,7 @@ export const DISPLAY_ARTICLES = 'DISPLAY_ARTICLES';
 export const ADD_VET = 'ADD_VET';
 export const DISPLAY_VETS = 'DISPLAY_VETS';
 export const ADD_DOG_FRIENDLY = 'ADD_DOG_FRIENDLY';
+export const DISPLAY_DOG_FRIENDLY = 'DISPLAY_DOG_FRIENDLY';
 
 
 const config = {
@@ -161,5 +162,14 @@ const config = {
         type: ADD_DOG_FRIENDLY,
         payload: values
       })
+    }
+  }
+
+  export function displayDogFriendly() {
+    return function(dispatch) {
+      dogFriendlyDatabase.on('value', snapshot => {dispatch({
+        type: DISPLAY_DOG_FRIENDLY,
+        payload: snapshot.val()
+      })})
     }
   }

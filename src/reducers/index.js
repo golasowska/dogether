@@ -7,6 +7,7 @@ import DisplayArtReducer from './displayart';
 import AddVetReducer from './addVet';
 import DisplayVetsReducer from './displayVet';
 import AddDogFriendly from './addDogFriendly';
+import DisplayDogFriendly from './displayDogFriendly';
 
 const rootReducer = combineReducers({
   form: FormReducer,
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
   displayart: DisplayArtReducer,
   vets: AddVetReducer,
   displayVets: DisplayVetsReducer,
-  dogFriendly: AddDogFriendly
+  dogFriendly: AddDogFriendly,
+  displayDogFriendly: DisplayDogFriendly
 });
 
 export default rootReducer;
