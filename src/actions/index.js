@@ -7,6 +7,7 @@ export const NEW_ARTICLE = 'NEW_ARTICLE';
 export const DISPLAY_ARTICLES = 'DISPLAY_ARTICLES';
 export const ADD_VET = 'ADD_VET';
 export const DISPLAY_VETS = 'DISPLAY_VETS';
+export const ADD_DOG_FRIENDLY = 'ADD_DOG_FRIENDLY';
 
 
 const config = {
@@ -22,6 +23,7 @@ const config = {
 
   const artDatabase = Firebase.database().ref('newArticle');
   const vetDatabase = Firebase.database().ref('Vets');
+  const dogFriendlyDatabase = Firebase.database().ref('dogFriendly');
   const storage = Firebase.storage().ref();
 
   export function signUpUser(credentials) {
@@ -140,5 +142,24 @@ const config = {
         type: DISPLAY_VETS,
         payload: snapshot.val()
       })})
+    }
+  }
+
+  export function addDogFriendly(values, callback) {
+    const { place, tags, description, www} = values;
+    const userUid = Firebase.auth().currentUser.uid;
+    return function(dispatch) {
+      dogFriendlyDatabase.push({
+        id: userUid,
+        place: place,
+        tags: tags,
+        description: description,
+        www: www
+      })
+      callback()
+      dispatch({
+        type: ADD_DOG_FRIENDLY,
+        payload: values
+      })
     }
   }

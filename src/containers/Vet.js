@@ -29,7 +29,7 @@ class Vet extends React.Component{
     return (
         <div>
           <Navigation />
-          <Link className='btn btn-primary btn-lg btn-block mt-4 mb-4' to='/addvet'>Add a vet</Link>
+          <Link className='btn btn-info btn-lg btn-block mt-4 mb-4' to='/addvet'>Add a vet</Link>
           <div className='text-center'>
             {this.showVet()}
           </div>

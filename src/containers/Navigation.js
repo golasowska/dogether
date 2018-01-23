@@ -22,7 +22,7 @@ class Navigation extends React.Component{
               <Link className='nav-link active' to='/gallery'>Gallery</Link>
             </li>
             <li className='nav-item' key={2}>
-              <Link className='nav-link' to='/dog-friendly'>Dog friendly</Link>
+              <Link className='nav-link' to='/dogfriendly'>Dog friendly</Link>
             </li>
             <li className='nav-item' key={3}>
               <Link className='nav-link' to='/vet'>Vet</Link>
