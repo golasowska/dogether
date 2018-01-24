@@ -14,6 +14,7 @@ export const ADD_GALLERY = 'ADD_GALLERY';
 export const DISPLAY_GALLERY = 'DISPLAY_GALLERY';
 export const ADD_VOTE = 'ADD_VOTE';
 export const BLOCK_VOTE = 'BLOCK_VOTE';
+export const ADD_ADOPTION = 'ADD_ADOPTION';
 
 const config = {
     apiKey: "AIzaSyDjmyqfb-Olrz8xpTzK6B5Ry_x29Ut7dW4",
@@ -32,6 +33,8 @@ const config = {
   const articleStorage = Firebase.storage().ref('Articles');
   const galleryStorage = Firebase.storage().ref('Gallery');
   const galleryDatabase = Firebase.database().ref('Gallery');
+  const adoptionDatabase = Firebase.database().ref('Adoption');
+  const adoptionStorage = Firebase.storage().ref('Adoption');
 
   export function signUpUser(credentials) {
     return function(dispatch) {
@@ -213,7 +216,6 @@ const config = {
         payload: values
       })
     }
-
   }
 
   export function displayGallery() {
@@ -242,6 +244,27 @@ const config = {
       dispatch({
         type: BLOCK_VOTE,
         payload: block
+      })
+    }
+  }
+
+  export function addAdoption(values, callback) {
+    const {name, race, picture} = values;
+    const userUid = Firebase.auth().currentUser.uid;
+    const id = `${userUid}${new Date().getTime()}`;
+    return function(dispatch) {
+      adoptionStorage.child(`images/${id}`).put(picture[0]).then((snapshot) => {
+        adoptionDatabase.push({
+          id: id,
+          name: name,
+          race: race,
+          picture: snapshot.metadata.downloadURLs[0]
+        })
+      })
+      callback()
+      dispatch({
+        type: ADD_ADOPTION,
+        payload: values
       })
     }
   }

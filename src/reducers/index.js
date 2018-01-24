@@ -12,6 +12,7 @@ import AddGallery from './addgallery';
 import DisplayGallery from './displaygallery';
 import AddVote from './addvote';
 import BlockVote from './blockvote';
+import AddAdoption from './addadoption';
 
 const rootReducer = combineReducers({
   form: FormReducer,
@@ -26,7 +27,8 @@ const rootReducer = combineReducers({
   addGallery: AddGallery,
   displayGallery: DisplayGallery,
   addvote: AddVote,
-  blockvote: BlockVote
+  blockvote: BlockVote,
+  addadoption: AddAdoption
 });
 
 export default rootReducer;
