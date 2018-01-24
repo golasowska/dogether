@@ -14,6 +14,7 @@ import AddVote from './addvote';
 import BlockVote from './blockvote';
 import AddAdoption from './addadoption';
 import DisplayAdoption from './displayadoption'
+import Reserve from './reserve';
 
 const rootReducer = combineReducers({
   form: FormReducer,
@@ -30,7 +31,8 @@ const rootReducer = combineReducers({
   addvote: AddVote,
   blockvote: BlockVote,
   addadoption: AddAdoption,
-  displayAdoption: DisplayAdoption
+  displayAdoption: DisplayAdoption,
+  reserve: Reserve
 });
 
 export default rootReducer;

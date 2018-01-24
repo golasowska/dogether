@@ -16,6 +16,7 @@ export const ADD_VOTE = 'ADD_VOTE';
 export const BLOCK_VOTE = 'BLOCK_VOTE';
 export const ADD_ADOPTION = 'ADD_ADOPTION';
 export const DISPLAY_ADOPTION = 'DISPLAY_ADOPTION';
+export const RESERVE = 'RESERVE';
 
 const config = {
     apiKey: "AIzaSyDjmyqfb-Olrz8xpTzK6B5Ry_x29Ut7dW4",
@@ -105,9 +106,10 @@ const config = {
     return function(dispatch) {
       articleStorage.child(`images/${id}`).put(picture[0]).then((snapshot) => {
         artDatabase.push({
-          id: id,
-          title: title,
-          content: content,
+          userUid,
+          id,
+          title,
+          content,
           picture: snapshot.metadata.downloadURLs[0]})
         })
         callback()
@@ -132,12 +134,12 @@ const config = {
     const userUid = Firebase.auth().currentUser.uid;
     return function(dispatch) {
       vetDatabase.push({
-        id: userUid,
-        vet: vet,
-        streetName: streetName,
-        streetNumber: streetNumber,
-        phone: phone,
-        www: www
+        userUid,
+        vet,
+        streetName,
+        streetNumber,
+        phone,
+        www
       })
       callback()
       dispatch({
@@ -161,11 +163,11 @@ const config = {
     const userUid = Firebase.auth().currentUser.uid;
     return function(dispatch) {
       dogFriendlyDatabase.push({
-        id: userUid,
-        place: place,
-        tags: tags,
-        description: description,
-        www: www
+        userUid,
+        place,
+        tags,
+        description,
+        www
       })
       callback()
       dispatch({
@@ -205,10 +207,11 @@ const config = {
     return function(dispatch) {
       galleryStorage.child(`images/${id}`).put(picture[0]).then((snapshot) => {
         galleryDatabase.push({
-          id: id,
-          name: name,
+          userUid,
+          id,
+          name,
           picture: snapshot.metadata.downloadURLs[0],
-          votes: votes
+          votes
         })
       })
       callback()
@@ -250,15 +253,18 @@ const config = {
   }
 
   export function addAdoption(values, callback) {
-    const {name, race, picture} = values;
+    const {name, breed, picture} = values;
     const userUid = Firebase.auth().currentUser.uid;
     const id = `${userUid}${new Date().getTime()}`;
+    const adoption = 'reserve';
     return function(dispatch) {
       adoptionStorage.child(`images/${id}`).put(picture[0]).then((snapshot) => {
         adoptionDatabase.push({
-          id: id,
-          name: name,
-          race: race,
+          adoption,
+          userUid,
+          id,
+          name,
+          breed,
           picture: snapshot.metadata.downloadURLs[0]
         })
       })
@@ -276,5 +282,18 @@ const config = {
         type: DISPLAY_ADOPTION,
         payload: snapshot.val()
       })})
+    }
+  }
+
+  export function reserveData(data, key){
+    console.log('action reserve', data);
+    return function(dispatch) {
+      adoptionDatabase.child(key).update({
+        'adoption': data
+      })
+      dispatch({
+        type: RESERVE,
+        payload: data
+      })
     }
   }

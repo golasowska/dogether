@@ -11,8 +11,8 @@ const validate = values => {
   if(!values.name) {
     errors.name = "Please enter your pet's name."
   }
-  if(!values.race) {
-    errors.race = "Please enter dog's race."
+  if(!values.breed) {
+    errors.breed = "Please enter dog's breed."
   }
   return errors;
 }
@@ -46,7 +46,7 @@ class AddAdoption extends React.Component{
             <form onSubmit={this.props.handleSubmit(this.handleFormSubmit)}>
               <Field name='picture' type='picture' component={FileField} label='Picture' />
               <Field name='name' type='text' component={this.renderTextArea} label="Dog's name" />
-              <Field name='race' type='text' component={this.renderTextArea} label="Dog's race" />
+              <Field name='breed' type='text' component={this.renderTextArea} label="Dog's breed" />
               <button action='submit' className='btn btn-primary'>Add for adoption</button>
             </form>
           </div>
