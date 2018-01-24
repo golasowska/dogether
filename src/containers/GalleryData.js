@@ -6,10 +6,16 @@ import {connect} from 'react-redux';
 class GalleryData extends React.Component{
 
   handleClick=()=> {
-    let votes = this.props.pet.votes;
-    const key = this.props.pet.key;
-    votes++;
-    this.props.addVote(votes, key);
+    if (this.props.canVote) {
+      let votes = this.props.pet.votes;
+      const key = this.props.pet.key;
+      votes++;
+      this.props.addVote(votes, key);
+      this.props.blockVote(false)
+      setTimeout(()=>{
+      this.props.blockVote(true)
+  }, 10000);
+    }
   }
 
   render(){
@@ -31,4 +37,10 @@ class GalleryData extends React.Component{
   }
 }
 
-export default connect(null, Actions)(GalleryData);
+function mapStateToProps(state){
+  return {
+    canVote: state.blockvote
+  }
+}
+
+export default connect(mapStateToProps, Actions)(GalleryData);

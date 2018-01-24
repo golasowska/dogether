@@ -13,7 +13,7 @@ export const DISPLAY_DF_TAGS = 'DISPLAY_DF_TAGS';
 export const ADD_GALLERY = 'ADD_GALLERY';
 export const DISPLAY_GALLERY = 'DISPLAY_GALLERY';
 export const ADD_VOTE = 'ADD_VOTE';
-
+export const BLOCK_VOTE = 'BLOCK_VOTE';
 
 const config = {
     apiKey: "AIzaSyDjmyqfb-Olrz8xpTzK6B5Ry_x29Ut7dW4",
@@ -234,5 +234,14 @@ const config = {
         type: ADD_VOTE,
         payload: votes
       })
-    }    
+    }
+  }
+
+  export function blockVote(block){
+    return function(dispatch) {
+      dispatch({
+        type: BLOCK_VOTE,
+        payload: block
+      })
+    }
   }
