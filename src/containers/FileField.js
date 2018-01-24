@@ -23,7 +23,8 @@ class FileField extends React.Component{
     reader.readAsDataURL(file);
   }
   render(){
-    const { input, label} = this.props;
+    const { input, label, meta : { touched, error } } = this.props;
+    console.log('propsiki w file field ','touched', touched,'error', error, 'input', input);
     delete input.value;
     return(
       <div>
@@ -38,7 +39,9 @@ class FileField extends React.Component{
               />
             </div>
         </div>
+
         <PreviewPicture picture={this.state.picture} pictureUrl={this.state.pictureUrl} />
+        {touched && error && <div className='alert alert-danger'>{error}</div>}
       </div>
     );
   }

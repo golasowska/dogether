@@ -15,7 +15,7 @@ class SearchBar extends React.Component{
 
   handleFormSubmit = (values) => {
     this.props.fetchDfTags(values);
-    console.log('fetchDfTags');
+    values.title = '';
   }
 
   renderTextField = ({ input, label, type, meta : { touched, error }}) => {
@@ -23,7 +23,7 @@ class SearchBar extends React.Component{
       <fieldset className='form-group d-inline-block'>
         <label className='label-control mt-4'>{ label }</label>
         <div>
-          <input {...input} placeholder={label} className='form-control' type={type}/>
+          <input {...input} placeholder={label} className='form-control text-lowercase' type={type}/>
           {touched && error && <div className='alert alert-danger'>{error}</div>}
         </div>
       </fieldset>

@@ -66,7 +66,7 @@ class AddDogFriendly extends React.Component{
       <Navigation />
       <div className='container'>
         <div className='col-md-6 col-md-offset-3'>
-          <h2>Add a place</h2>
+          <h2 className='mt-5'>Add a place</h2>
 
           <form onSubmit={this.props.handleSubmit(this.handleFormSubmit)}>
             <Field name='place' type='text' component={this.renderTextArea} label='Add a place' />

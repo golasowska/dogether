@@ -9,7 +9,8 @@ export const ADD_VET = 'ADD_VET';
 export const DISPLAY_VETS = 'DISPLAY_VETS';
 export const ADD_DOG_FRIENDLY = 'ADD_DOG_FRIENDLY';
 export const DISPLAY_DOG_FRIENDLY = 'DISPLAY_DOG_FRIENDLY';
-export const DISPLAY_DF_TAGS = 'DISPLAY_DF_TAGS'
+export const DISPLAY_DF_TAGS = 'DISPLAY_DF_TAGS';
+export const ADD_GALLERY = 'ADD_GALLERY';
 
 
 const config = {
@@ -26,7 +27,9 @@ const config = {
   const artDatabase = Firebase.database().ref('newArticle');
   const vetDatabase = Firebase.database().ref('Vets');
   const dogFriendlyDatabase = Firebase.database().ref('dogFriendly');
-  const storage = Firebase.storage().ref();
+  const articleStorage = Firebase.storage().ref('Articles');
+  const galleryStorage = Firebase.storage().ref('Gallery');
+  const galleryDatabase = Firebase.database().ref('Gallery');
 
   export function signUpUser(credentials) {
     return function(dispatch) {
@@ -94,7 +97,7 @@ const config = {
     const userUid = Firebase.auth().currentUser.uid;
     const id= `${userUid}${new Date().getTime()}`
     return function(dispatch) {
-      storage.child(`images/${id}`).put(picture[0]).then((snapshot) => {
+      articleStorage.child(`images/${id}`).put(picture[0]).then((snapshot) => {
         artDatabase.push({
           id: id,
           title: title,
@@ -186,4 +189,25 @@ const config = {
       })
     })
     }
+  }
+
+  export function addGallery(values, callback) {
+    const {name, picture} = values;
+    const userUid = Firebase.auth().currentUser.uid;
+    const id= `${userUid}${new Date().getTime()}`
+    return function(dispatch) {
+      galleryStorage.child(`images/${id}`).put(picture[0]).then((snapshot) => {
+        galleryDatabase.push({
+          id: id,
+          name: name,
+          picture: snapshot.metadata.downloadURLs[0]
+        })
+      })
+      callback()
+      dispatch({
+        type: ADD_GALLERY,
+        payload: values
+      })
+    }
+
   }

@@ -15,6 +15,7 @@ import Adoption from './Adoption';
 import NewArticle from './NewArticle';
 import AddVet from './AddVet';
 import AddDogFriendly from './AddDogFriendly';
+import AddGallery from './AddGallery';
 
 const PrivateRoute = ({ component: Component, authenticated, ...props}) => {
   return (
@@ -54,6 +55,7 @@ class App extends React.Component {
           <PrivateRoute authenticated = { this.props.authenticated} path = '/newarticle' component = { NewArticle } />
           <PrivateRoute authenticated = {this.props.authenticated} path = '/addvet' component = { AddVet } />
           <PrivateRoute authenticated = {this.props.authenticated} path = '/adddogfriendly' component = {AddDogFriendly} />
+          <PrivateRoute authenticated = {this.props.authenticated} path='/addgallery' component = {AddGallery} />
         </div>
       </ConnectedRouter>
     );

@@ -10,7 +10,7 @@ export default class ArticleData extends React.Component{
           <h4>Title: {title} </h4>
         </div>
         <div>
-          <div>Content : {content}</div>
+          <div className='text-justify'>Content : {content}</div>
         </div>
         <div>
           <PreviewPicture pictureUrl={picture} />

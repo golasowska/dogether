@@ -35,7 +35,7 @@ class Home extends React.Component{
           <div>
             {this.showArticle()}
           </div>
-          <Link className='btn btn-info' to='/newarticle'>Add new article</Link>
+          <Link className='btn btn-info btn-lg btn-block mt-4 mb-4' to='/newarticle'>Add new article</Link>
         </div>
     )
   }
