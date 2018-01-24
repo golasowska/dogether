@@ -17,3 +17,11 @@ body {
 .card-vet{
   height: 300px;
 }
+
+.card-gallery{
+  /*height: 500px;*/
+}
+
+.photo-gallery{
+  /*max-height: 350px;*/
+}

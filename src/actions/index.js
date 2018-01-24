@@ -11,6 +11,7 @@ export const ADD_DOG_FRIENDLY = 'ADD_DOG_FRIENDLY';
 export const DISPLAY_DOG_FRIENDLY = 'DISPLAY_DOG_FRIENDLY';
 export const DISPLAY_DF_TAGS = 'DISPLAY_DF_TAGS';
 export const ADD_GALLERY = 'ADD_GALLERY';
+export const DISPLAY_GALLERY = 'DISPLAY_GALLERY';
 
 
 const config = {
@@ -210,4 +211,13 @@ const config = {
       })
     }
 
+  }
+
+  export function displayGallery() {
+    return function(dispatch) {
+      galleryDatabase.on('value', snapshot => {dispatch({
+        type: DISPLAY_GALLERY,
+        payload: snapshot.val()
+      })})
+    }
   }

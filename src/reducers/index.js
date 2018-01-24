@@ -9,6 +9,7 @@ import DisplayVetsReducer from './displayVet';
 import AddDogFriendly from './addDogFriendly';
 import DisplayDogFriendly from './displayDogFriendly';
 import AddGallery from './addgallery';
+import DisplayGallery from './displaygallery';
 
 const rootReducer = combineReducers({
   form: FormReducer,
@@ -20,7 +21,8 @@ const rootReducer = combineReducers({
   displayVets: DisplayVetsReducer,
   dogFriendly: AddDogFriendly,
   displayDogFriendly: DisplayDogFriendly,
-  addGallery: AddGallery
+  addGallery: AddGallery,
+  displayGallery: DisplayGallery
 });
 
 export default rootReducer;
