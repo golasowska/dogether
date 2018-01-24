@@ -7,10 +7,11 @@ import {connect} from 'react-redux';
 class AdoptionData extends React.Component{
 
   handleReserve=()=> {
-    // if(this.props.reserve==='reserve');
-    const key = this.props.dog.key
-    const data = 'reserved'
+    const key = this.props.dog.key;
+    const data = 'reserved';
+    const dog = this.props.dog
     this.props.reserveData(data, key);
+    this.props.onDogSelect(dog);
   }
 
   render(){
@@ -27,6 +28,8 @@ class AdoptionData extends React.Component{
           </div>)
   }
 }
+
+
 
 
 export default connect(null, Actions) (AdoptionData);

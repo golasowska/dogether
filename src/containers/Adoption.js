@@ -4,14 +4,24 @@ import { connect} from 'react-redux';
 import * as Actions from '../actions';
 import _ from 'lodash';
 
+
 import Navigation from './Navigation';
 import AdoptionData from './AdoptionData';
+import DogModal from './DogModal';
 
 
 class Adoption extends React.Component{
 
   componentDidMount=()=> {
     this.props.displayAdoption();
+  }
+
+  onDogSelect=(dog)=> {
+    this.props.openModal(dog);
+  }
+
+  closeModal = () => {
+    this.props.closeModal();
   }
 
   showAdoption=()=>{
@@ -21,7 +31,7 @@ class Adoption extends React.Component{
       }
     }
     return _.map(this.props.adoption, dog => {
-      return <AdoptionData key={dog.key} dog={dog} />
+      return <AdoptionData key={dog.key} dog={dog} onDogSelect={this.onDogSelect}/>
     })
   }
 
@@ -35,6 +45,7 @@ class Adoption extends React.Component{
           <div>
             {this.showAdoption()}
           </div>
+          <DogModal modalIsOpen={this.props.modalIsOpen} selectedDog={this.props.selectedDog} onRequestClose={this.closeModal} />
         </div>
     )
   }
@@ -43,7 +54,9 @@ class Adoption extends React.Component{
 function mapStateToProps(state) {
   console.log('stejt adoption', state.displayAdoption);
   return {
-    adoption: state.displayAdoption
+    adoption: state.displayAdoption,
+    modalIsOpen: state.modal.modalIsOpen,
+    selectedDog: state.modal.selectedDog
   }
 }
 

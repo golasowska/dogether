@@ -17,6 +17,8 @@ export const BLOCK_VOTE = 'BLOCK_VOTE';
 export const ADD_ADOPTION = 'ADD_ADOPTION';
 export const DISPLAY_ADOPTION = 'DISPLAY_ADOPTION';
 export const RESERVE = 'RESERVE';
+export const OPEN_MODAL = 'OPEN_MODAL';
+export const CLOSE_MODAL = 'CLOSE_MODAL';
 
 const config = {
     apiKey: "AIzaSyDjmyqfb-Olrz8xpTzK6B5Ry_x29Ut7dW4",
@@ -295,5 +297,18 @@ const config = {
         type: RESERVE,
         payload: data
       })
+    }
+  }
+
+  export function openModal(dog) {
+    return {
+      type: OPEN_MODAL,
+      payload: dog
+    }
+  }
+
+  export function closeModal() {
+    return {
+      type: CLOSE_MODAL
     }
   }
