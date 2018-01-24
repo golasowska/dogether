@@ -15,6 +15,7 @@ export const DISPLAY_GALLERY = 'DISPLAY_GALLERY';
 export const ADD_VOTE = 'ADD_VOTE';
 export const BLOCK_VOTE = 'BLOCK_VOTE';
 export const ADD_ADOPTION = 'ADD_ADOPTION';
+export const DISPLAY_ADOPTION = 'DISPLAY_ADOPTION';
 
 const config = {
     apiKey: "AIzaSyDjmyqfb-Olrz8xpTzK6B5Ry_x29Ut7dW4",
@@ -266,5 +267,14 @@ const config = {
         type: ADD_ADOPTION,
         payload: values
       })
+    }
+  }
+
+  export function displayAdoption() {
+    return function(dispatch) {
+      adoptionDatabase.on('value', snapshot => {dispatch({
+        type: DISPLAY_ADOPTION,
+        payload: snapshot.val()
+      })})
     }
   }
