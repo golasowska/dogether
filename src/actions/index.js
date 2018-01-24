@@ -12,6 +12,7 @@ export const DISPLAY_DOG_FRIENDLY = 'DISPLAY_DOG_FRIENDLY';
 export const DISPLAY_DF_TAGS = 'DISPLAY_DF_TAGS';
 export const ADD_GALLERY = 'ADD_GALLERY';
 export const DISPLAY_GALLERY = 'DISPLAY_GALLERY';
+export const ADD_VOTE = 'ADD_VOTE';
 
 
 const config = {
@@ -195,13 +196,15 @@ const config = {
   export function addGallery(values, callback) {
     const {name, picture} = values;
     const userUid = Firebase.auth().currentUser.uid;
-    const id= `${userUid}${new Date().getTime()}`
+    const id= `${userUid}${new Date().getTime()}`;
+    const votes = 0;
     return function(dispatch) {
       galleryStorage.child(`images/${id}`).put(picture[0]).then((snapshot) => {
         galleryDatabase.push({
           id: id,
           name: name,
-          picture: snapshot.metadata.downloadURLs[0]
+          picture: snapshot.metadata.downloadURLs[0],
+          votes: votes
         })
       })
       callback()
@@ -220,4 +223,16 @@ const config = {
         payload: snapshot.val()
       })})
     }
+  }
+
+  export function addVote(votes, key) {
+    return function(dispatch) {
+      galleryDatabase.child(key).update({
+        'votes': votes
+      })
+      dispatch({
+        type: ADD_VOTE,
+        payload: votes
+      })
+    }    
   }

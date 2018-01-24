@@ -10,6 +10,7 @@ import AddDogFriendly from './addDogFriendly';
 import DisplayDogFriendly from './displayDogFriendly';
 import AddGallery from './addgallery';
 import DisplayGallery from './displaygallery';
+import AddVote from './addvote';
 
 const rootReducer = combineReducers({
   form: FormReducer,
@@ -22,7 +23,8 @@ const rootReducer = combineReducers({
   dogFriendly: AddDogFriendly,
   displayDogFriendly: DisplayDogFriendly,
   addGallery: AddGallery,
-  displayGallery: DisplayGallery
+  displayGallery: DisplayGallery,
+  addvote: AddVote
 });
 
 export default rootReducer;
