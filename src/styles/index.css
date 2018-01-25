@@ -71,3 +71,8 @@ body {
 .dog:hover {
   opacity: 0.75;
 }
+
+.dog-modal {
+  text-align: center;
+  margin: 0 auto;
+}

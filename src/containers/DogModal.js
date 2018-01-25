@@ -41,14 +41,15 @@ export default class DogModal extends React.Component {
           ariaHideApp={false}
           onRequestClose={() => this.props.onRequestClose()}
         >
-          <div className="text-center mx-auto">
+          <div className="dog-modal">
             <div className="text-center">
               <PreviewPicture pictureUrl={picture} />
             </div>
-            <div className="text-center mx-auto">
+            <div className="text-center">
               <ModalForm
                 onRequestClose={this.props.onRequestClose}
                 ownerUid={userUid}
+                selectedDog={this.props.selectedDog}
               />
               <button
                 className="btn btn-primary mb-3"

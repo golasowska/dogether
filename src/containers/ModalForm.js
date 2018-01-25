@@ -24,8 +24,11 @@ const validate = values => {
 
 class ModalForm extends React.Component {
   handleFormSubmit = values => {
+    const key = this.props.selectedDog.key;
+    const data = 'reserved';
     this.props.adoptMessage(values, this.props.ownerUid);
     this.props.onRequestClose();
+    this.props.reserveData(data, key);
   };
 
   renderTextArea = ({ input, label, type, meta: { touched, error } }) => (
@@ -45,8 +48,8 @@ class ModalForm extends React.Component {
 
   render() {
     return (
-      <div className="col-md-6 col-md-offset-3 text-center">
-        <h2 className="text-center">Adopt a dog</h2>
+      <div className="col-md-6 col-md-offset-3 text-left">
+        <h2 className="text-left">Adopt a dog</h2>
 
         <form onSubmit={this.props.handleSubmit(this.handleFormSubmit)}>
           <Field
