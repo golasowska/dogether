@@ -144,12 +144,13 @@ export function displayArticles() {
 }
 
 export function addVet(values, callback) {
-  const { vet, streetName, streetNumber, phone, www } = values;
+  const { vet, city, streetName, streetNumber, phone, www } = values;
   const userUid = Firebase.auth().currentUser.uid;
   return function(dispatch) {
     vetDatabase.push({
       userUid,
       vet,
+      city,
       streetName,
       streetNumber,
       phone,

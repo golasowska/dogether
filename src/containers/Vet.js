@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 
 import VetData from './VetData';
+import GoogleMap from './GoogleMap';
 
 class Vet extends React.Component {
   componentDidMount = () => {
@@ -31,6 +32,9 @@ class Vet extends React.Component {
           Add a vet
         </Link>
         <div className="text-center">{this.showVet()}</div>
+        <div className="justify-content-center">
+          <GoogleMap />
+        </div>
       </div>
     );
   }

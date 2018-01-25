@@ -10,6 +10,9 @@ const validate = values => {
   if (!values.vet) {
     errors.vet = 'Please enter a vet name.';
   }
+  if (!values.city) {
+    errors.city = 'Please enter city name.';
+  }
   if (!values.streetName) {
     errors.streetName = 'Please enter a street name.';
   }
@@ -65,6 +68,12 @@ class AddVet extends React.Component {
                 type="text"
                 component={this.renderTextArea}
                 label="Vet name"
+              />
+              <Field
+                name="city"
+                type="text"
+                component={this.renderTextArea}
+                label="City"
               />
               <Field
                 name="streetName"
