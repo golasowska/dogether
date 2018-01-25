@@ -13,9 +13,10 @@ import DisplayGallery from './displaygallery';
 import AddVote from './addvote';
 import BlockVote from './blockvote';
 import AddAdoption from './addadoption';
-import DisplayAdoption from './displayadoption'
+import DisplayAdoption from './displayadoption';
 import Reserve from './reserve';
 import ModalReducer from './modal';
+import SendAdoptionMessage from './sendAdoptMessage';
 
 const rootReducer = combineReducers({
   form: FormReducer,
@@ -34,7 +35,8 @@ const rootReducer = combineReducers({
   addadoption: AddAdoption,
   displayAdoption: DisplayAdoption,
   reserve: Reserve,
-  modal: ModalReducer
+  modal: ModalReducer,
+  sendAdoptMessage: SendAdoptionMessage
 });
 
 export default rootReducer;

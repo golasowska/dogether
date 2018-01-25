@@ -11,9 +11,11 @@ export function configureStore(initialState) {
   const store = createStore(
     rootReducer,
     initialState,
-    compose (
+    compose(
       applyMiddleware(reduxThunk, routerMiddleware(history)),
-      window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__() : undefined
+      window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+        ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__()
+        : undefined
     )
   );
 

@@ -1,50 +1,65 @@
 import React from 'react';
 import Modal from 'react-modal';
 import PreviewPicture from './PreviewPicture';
+import ModalForm from './ModalForm';
 
 const customStyles = {
   overlay: {
     position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
+    top: '100px',
+    left: '150px',
+    right: '150px',
+    bottom: '100px',
     backgroundColor: 'rgba(255, 255, 255, 0.75)'
   },
   content: {
     position: 'absolute',
-    top: '40px',
-    left: '40px',
-    right: '40px',
-    bottom: '40px',
+    top: '20px',
+    left: '20px',
+    right: '20px',
+    bottom: '20px',
     border: '1px solid #ccc',
     background: '#fff',
     overflow: 'auto',
     WebkitOverflowScrolling: 'touch',
     borderRadius: '4px',
     outline: 'none',
-    padding: '20px'
+    padding: '10px'
   }
-}
+};
 
 export default class DogModal extends React.Component {
   render() {
-    if (!this.props.selectedDog){
-      return <div></div>
+    if (!this.props.selectedDog) {
+      return <div />;
     } else {
-      const { name, breed, adoption, picture} = this.props.selectedDog;
+      const { picture, userUid } = this.props.selectedDog;
       return (
-        <Modal isOpen={this.props.modalIsOpen} style={customStyles} ariaHideApp={false} onRequestClose = { () => this.props.onRequestClose()}>
-          <div>
-            <div className='text-center'>
+        <Modal
+          isOpen={this.props.modalIsOpen}
+          style={customStyles}
+          ariaHideApp={false}
+          onRequestClose={() => this.props.onRequestClose()}
+        >
+          <div className="text-center mx-auto">
+            <div className="text-center">
               <PreviewPicture pictureUrl={picture} />
             </div>
-            <div className='text-center mt-4'>
-              <button className='btn btn-primary mb-3' onClick={() => this.props.onRequestClose()}>close</button>
+            <div className="text-center mx-auto">
+              <ModalForm
+                onRequestClose={this.props.onRequestClose}
+                ownerUid={userUid}
+              />
+              <button
+                className="btn btn-primary mb-3"
+                onClick={() => this.props.onRequestClose()}
+              >
+                close
+              </button>
             </div>
           </div>
         </Modal>
-      )
+      );
     }
   }
 }

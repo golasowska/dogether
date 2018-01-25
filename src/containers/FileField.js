@@ -1,8 +1,8 @@
 import React from 'react';
 import PreviewPicture from './PreviewPicture';
 
-class FileField extends React.Component{
-  constructor(state){
+class FileField extends React.Component {
+  constructor(state) {
     super(state);
     this.state = {
       picture: 'Please attach a picture',
@@ -22,26 +22,39 @@ class FileField extends React.Component{
     };
     reader.readAsDataURL(file);
   }
-  render(){
-    const { input, label, meta : { touched, error } } = this.props;
-    console.log('propsiki w file field ','touched', touched,'error', error, 'input', input);
+  render() {
+    const { input, label, meta: { touched, error } } = this.props;
+    console.log(
+      'propsiki w file field ',
+      'touched',
+      touched,
+      'error',
+      error,
+      'input',
+      input
+    );
     delete input.value;
-    return(
+    return (
       <div>
-        <div className='form-group'>
-          <label className='control-label'>{label}</label>
-            <div>
-              <input type='file'
-              className='form-control' {...input}
-              onChange={(event) => {
+        <div className="form-group">
+          <label className="control-label">{label}</label>
+          <div>
+            <input
+              type="file"
+              className="form-control"
+              {...input}
+              onChange={event => {
                 this.displayPicture(event);
               }}
-              />
-            </div>
+            />
+          </div>
         </div>
 
-        <PreviewPicture picture={this.state.picture} pictureUrl={this.state.pictureUrl} />
-        {touched && error && <div className='alert alert-danger'>{error}</div>}
+        <PreviewPicture
+          picture={this.state.picture}
+          pictureUrl={this.state.pictureUrl}
+        />
+        {touched && error && <div className="alert alert-danger">{error}</div>}
       </div>
     );
   }
