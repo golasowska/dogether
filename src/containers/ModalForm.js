@@ -48,7 +48,7 @@ class ModalForm extends React.Component {
 
   render() {
     return (
-      <div className="col-md-6 col-md-offset-3 text-left">
+      <div className="text-left">
         <h2 className="text-left">Adopt a dog</h2>
 
         <form onSubmit={this.props.handleSubmit(this.handleFormSubmit)}>

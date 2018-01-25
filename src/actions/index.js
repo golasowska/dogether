@@ -20,6 +20,7 @@ export const RESERVE = 'RESERVE';
 export const OPEN_MODAL = 'OPEN_MODAL';
 export const CLOSE_MODAL = 'CLOSE_MODAL';
 export const SEND_ADOPTION_MESSAGE = 'SEND_ADOPTION_MESSAGE';
+export const DISPLAY_MESSAGES = 'DISPLAY_MESSAGES';
 
 const config = {
   apiKey: 'AIzaSyDjmyqfb-Olrz8xpTzK6B5Ry_x29Ut7dW4',
@@ -358,6 +359,25 @@ export function adoptMessage(values, ownerUid) {
       type: SEND_ADOPTION_MESSAGE,
       payload: data
     });
+  };
+}
+
+export function displayMessages() {
+  const userUid = Firebase.auth().currentUser.uid;
+  return function(dispatch) {
+    adoptionMessageDatabase
+      .orderByChild('ownerUid')
+      .equalTo(userUid)
+      .on('value', snapshot => {
+        console.log(
+          'snapshot.key, snapshot.val display messages',
+          snapshot.val()
+        );
+        dispatch({
+          type: DISPLAY_MESSAGES,
+          payload: snapshot.val()
+        });
+      });
   };
 }
 

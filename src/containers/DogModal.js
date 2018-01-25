@@ -41,7 +41,7 @@ export default class DogModal extends React.Component {
           ariaHideApp={false}
           onRequestClose={() => this.props.onRequestClose()}
         >
-          <div className="dog-modal">
+          <div className="col-md-8  mx-auto">
             <div className="text-center">
               <PreviewPicture pictureUrl={picture} />
             </div>

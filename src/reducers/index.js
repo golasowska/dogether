@@ -17,6 +17,7 @@ import DisplayAdoption from './displayadoption';
 import Reserve from './reserve';
 import ModalReducer from './modal';
 import SendAdoptionMessage from './sendAdoptMessage';
+import DisplayMessages from './displayMessages';
 
 const rootReducer = combineReducers({
   form: FormReducer,
@@ -36,7 +37,8 @@ const rootReducer = combineReducers({
   displayAdoption: DisplayAdoption,
   reserve: Reserve,
   modal: ModalReducer,
-  sendAdoptMessage: SendAdoptionMessage
+  sendAdoptMessage: SendAdoptionMessage,
+  displayMessages: DisplayMessages
 });
 
 export default rootReducer;
