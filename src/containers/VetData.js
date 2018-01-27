@@ -1,6 +1,17 @@
 import React from 'react';
 
 export default class VetData extends React.Component {
+  vetLocation = () => {
+    const address =
+      this.props.vet.city.toString() +
+      ' ' +
+      this.props.vet.streetName.toString() +
+      ' ' +
+      this.props.vet.streetNumber.toString();
+    this.props.vetLocation(address);
+    // console.log('address', address);
+  };
+
   render() {
     const { vet, city, streetName, streetNumber, phone, www } = this.props.vet;
     return (
@@ -19,6 +30,9 @@ export default class VetData extends React.Component {
                 Website: {www}
               </a>
             </p>
+            <button className="btn btn-primary" onClick={this.vetLocation}>
+              Show on the map
+            </button>
           </div>
         </div>
       </div>

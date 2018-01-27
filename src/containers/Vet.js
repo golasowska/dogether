@@ -13,6 +13,10 @@ class Vet extends React.Component {
     this.props.displayVets();
   };
 
+  vetLocation = address => {
+    this.props.vetLocation(address);
+  };
+
   showVet = () => {
     if (this.props.vets) {
       for (const key of Object.keys(this.props.vets)) {
@@ -20,11 +24,12 @@ class Vet extends React.Component {
       }
     }
     return _.map(this.props.vets, vet => {
-      return <VetData key={vet.key} vet={vet} />;
+      return <VetData key={vet.key} vet={vet} vetLocation={this.vetLocation} />;
     });
   };
 
   render() {
+    // console.log('this.props.vetLocation', this.props.vetLoc);
     return (
       <div>
         <Navigation />
@@ -33,7 +38,7 @@ class Vet extends React.Component {
         </Link>
         <div className="text-center">{this.showVet()}</div>
         <div className="justify-content-center">
-          <GoogleMap />
+          <GoogleMap vetLoc={this.props.vetLoc} />
         </div>
       </div>
     );
@@ -43,7 +48,8 @@ class Vet extends React.Component {
 function mapStateToProps(state) {
   console.log('vetsy', state.vets);
   return {
-    vets: state.displayVets
+    vets: state.displayVets,
+    vetLoc: state.vetLocation
   };
 }
 

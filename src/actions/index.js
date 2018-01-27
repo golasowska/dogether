@@ -21,6 +21,7 @@ export const OPEN_MODAL = 'OPEN_MODAL';
 export const CLOSE_MODAL = 'CLOSE_MODAL';
 export const SEND_ADOPTION_MESSAGE = 'SEND_ADOPTION_MESSAGE';
 export const DISPLAY_MESSAGES = 'DISPLAY_MESSAGES';
+export const VET_LOCATION = 'VET_LOCATION';
 
 const config = {
   apiKey: 'AIzaSyDjmyqfb-Olrz8xpTzK6B5Ry_x29Ut7dW4',
@@ -212,7 +213,7 @@ export function fetchDfTags(values) {
       .orderByChild('tags')
       .equalTo(value)
       .on('value', snapshot => {
-        console.log('snapshot.key, snapshot.val', snapshot.val());
+        // console.log('snapshot.key, snapshot.val', snapshot.val());
         dispatch({
           type: DISPLAY_DF_TAGS,
           payload: snapshot.val()
@@ -318,7 +319,7 @@ export function displayAdoption() {
 }
 
 export function reserveData(data, key) {
-  console.log('action reserve', data);
+  // console.log('action reserve', data);
   return function(dispatch) {
     adoptionDatabase.child(key).update({
       adoption: data
@@ -355,7 +356,7 @@ export function adoptMessage(values, ownerUid) {
       message,
       ownerUid
     });
-    console.log('data w send message', data);
+    // console.log('data w send message', data);
     dispatch({
       type: SEND_ADOPTION_MESSAGE,
       payload: data
@@ -370,10 +371,10 @@ export function displayMessages() {
       .orderByChild('ownerUid')
       .equalTo(userUid)
       .on('value', snapshot => {
-        console.log(
-          'snapshot.key, snapshot.val display messages',
-          snapshot.val()
-        );
+        // console.log(
+        //   'snapshot.key, snapshot.val display messages',
+        //   snapshot.val()
+        // );
         dispatch({
           type: DISPLAY_MESSAGES,
           payload: snapshot.val()
@@ -382,13 +383,11 @@ export function displayMessages() {
   };
 }
 
-// export function displayDogFriendly() {
-//   return function(dispatch) {
-//     dogFriendlyDatabase.on('value', snapshot => {
-//       dispatch({
-//         type: DISPLAY_DOG_FRIENDLY,
-//         payload: snapshot.val()
-//       });
-//     });
-//   };
-// }
+export function vetLocation(address) {
+  return function(dispatch) {
+    dispatch({
+      type: VET_LOCATION,
+      payload: address
+    });
+  };
+}
