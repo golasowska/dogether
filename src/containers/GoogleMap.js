@@ -2,68 +2,65 @@ import React from 'react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 
 class GoogleMap extends React.Component {
-  // const Marker = new google.maps.Marker({
-  //   position: new google.maps.LatLng(this.state.lat, this.state.lng)
-  // });
   constructor(props) {
     super(props);
     this.state = {
-      lat: 37.759703,
-      lng: -122.428093
+      lat: 50.0740676,
+      lng: 19.932697599999983,
+      showingInfoWindow: false,
+      activeMarker: {},
+      selectedPlace: {}
     };
   }
-  showMarker = () => {
-    const address = this.props.vetLoc.toString();
-    const google = this.props.google;
-    const geocoder = new google.maps.Geocoder();
-    if (geocoder) {
-      geocoder.geocode(
-        {
-          address: address
-        },
-        (results, status) => {
-          if (status === google.maps.GeocoderStatus.OK) {
-            this.setState({
-              lat: results[0].geometry.location.lat(),
-              lng: results[0].geometry.location.lng()
-            });
-            console.log('results', results[0]);
-            console.log('lat', results[0].geometry.location.lat());
-            console.log('lat', results[0].geometry.location.lng());
-            return results[0];
-          }
-        }
-      );
+
+  onMarkerClick = (props, marker, e) => {
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
+  };
+
+  onMapClicked = props => {
+    if (this.state.showingInfoWindow) {
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: null
+      });
     }
   };
 
   render() {
-    console.log('propsiki vetLoc w mapach render', this.props.vetLoc);
+    console.log('propsiki vetLoc w mapach render', this.props.vetLoc[0]);
     const style = {
       width: '75%',
       height: '50%',
       position: 'relative'
     };
 
-    if (this.props.vetLoc) {
-      this.showMarker();
-    }
-
     return (
       <Map
         google={this.props.google}
-        zoom={14}
-        className="col-md-8 text-center"
         style={style}
+        initialCenter={{
+          lat: this.props.vetLoc[1] || this.state.lat,
+          lng: this.props.vetLoc[2] || this.state.lng
+        }}
+        zoom={5}
+        onClick={this.onMapClicked}
       >
         <Marker
-          name={'Dolores park'}
-          position={{ lat: this.state.lat, lng: this.state.lng }}
+          title={this.props.vetLoc[0]}
+          name={this.props.vetLoc[0]}
+          position={{ lat: this.props.vetLoc[1], lng: this.props.vetLoc[2] }}
+          onClick={this.onMarkerClick}
         />
-
-        <InfoWindow onClose={this.onInfoWindowClose}>
+        <InfoWindow
+          marker={this.state.activeMarker}
+          visible={this.state.showingInfoWindow}
+        >
           <div>
-            <h1>jolo</h1>
+            <h1>{this.props.vetLoc[0]}</h1>
           </div>
         </InfoWindow>
       </Map>

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "firebase": "^4.8.1",
+    "geocoder": "^0.2.3",
     "google-maps-react": "^1.1.2",
     "history": "^4.7.2",
     "lodash": "^4.17.4",

@@ -1,4 +1,5 @@
 import React from 'react';
+import geocoder from 'geocoder';
 
 export default class VetData extends React.Component {
   vetLocation = () => {
@@ -8,7 +9,28 @@ export default class VetData extends React.Component {
       this.props.vet.streetName.toString() +
       ' ' +
       this.props.vet.streetNumber.toString();
-    this.props.vetLocation(address);
+
+    geocoder.geocode(address, (err, results) => {
+      // console.log('dejta w mapach', results);
+      const data = Object.assign({}, results);
+      // console.log('dejta z data', data);
+      // console.log('dejta z assign result.result', data.results);
+      const data2 = Object.assign({}, data.results);
+      // console.log('data2', data2[0]);
+      const data3 = Object.assign({}, data2[0]);
+      // console.log('data3', data3.geometry);
+      const data4 = Object.assign({}, data3.geometry);
+      // console.log('data4', data4.location);
+      const location = Object.assign({}, data4.location);
+      // console.log('lokejszyn', location.lat);
+      // console.log('this.state.lat', this.state.lat);
+      // console.log('this.state.lng', this.state.lng);
+      const lat = location.lat;
+      const lng = location.lng;
+      const geoLocation = [address, lat, lng];
+      this.props.vetLocation(geoLocation);
+    });
+
     // console.log('address', address);
   };
 
