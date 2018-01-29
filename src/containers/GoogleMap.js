@@ -32,6 +32,7 @@ class GoogleMap extends React.Component {
 
   render() {
     console.log('propsiki vetLoc w mapach render', this.props.vetLoc[0]);
+    console.log('propsy mapy', this.props.google);
     const style = {
       width: '75%',
       height: '50%',
@@ -42,12 +43,16 @@ class GoogleMap extends React.Component {
       <Map
         google={this.props.google}
         style={style}
-        initialCenter={{
-          lat: this.props.vetLoc[1] || this.state.lat,
-          lng: this.props.vetLoc[2] || this.state.lng
-        }}
-        zoom={5}
+        className={'map'}
+        centerAroundCurrentLocation={true}
+        // initialCenter={{
+        //   lat: 50.0740676,
+        //   lng: 19.932697599999983
+        // }}
+        center={{ lat: this.props.vetLoc[1], lng: this.props.vetLoc[2] }}
+        zoom={15}
         onClick={this.onMapClicked}
+        // mapCenter={this.props.google.maps.LatLng()}
       >
         <Marker
           title={this.props.vetLoc[0]}
