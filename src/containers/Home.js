@@ -5,6 +5,7 @@ import Navigation from './Navigation';
 import { Link } from 'react-router-dom';
 import * as Actions from '../actions';
 import ArticleData from '../components/ArticleData';
+import HomeGallery from './HomeGallery';
 
 class Home extends React.Component {
   componentDidMount = () => {
@@ -23,10 +24,11 @@ class Home extends React.Component {
   };
 
   render() {
-    console.log('propsiki title', this.props.articles);
+    // console.log('propsiki title', this.props.articles);
     return (
       <div>
         <Navigation />
+        <HomeGallery />
         <div>{this.showArticle()}</div>
         <Link
           className="btn btn-info btn-lg btn-block mt-4 mb-4"
