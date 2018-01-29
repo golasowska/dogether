@@ -31,8 +31,18 @@ class GoogleMap extends React.Component {
   };
 
   render() {
-    console.log('propsiki vetLoc w mapach render', this.props.vetLoc[0]);
-    console.log('propsy mapy', this.props.google);
+    if (!this.props.google) {
+      return <div className="alert alert-info">Loading...</div>;
+    }
+
+    // if (this.props.google && !this.props.vetLoc[1]) {
+    //   return (
+    //     <div className="alert alert-info">
+    //       Searching for data. Click the button again !
+    //     </div>
+    //   );
+    // }
+
     const style = {
       width: '75%',
       height: '50%',
@@ -50,7 +60,7 @@ class GoogleMap extends React.Component {
         //   lng: 19.932697599999983
         // }}
         center={{ lat: this.props.vetLoc[1], lng: this.props.vetLoc[2] }}
-        zoom={15}
+        zoom={18}
         onClick={this.onMapClicked}
         // mapCenter={this.props.google.maps.LatLng()}
       >

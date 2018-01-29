@@ -2,6 +2,7 @@ import React from 'react';
 import PreviewPicture from './PreviewPicture';
 import * as Actions from '../actions';
 import { connect } from 'react-redux';
+import swal from 'sweetalert';
 
 class AdoptionData extends React.Component {
   handleReserve = () => {
@@ -9,7 +10,11 @@ class AdoptionData extends React.Component {
     // const data = 'reserved';
     const dog = this.props.dog;
     // this.props.reserveData(data, key);
-    this.props.onDogSelect(dog);
+    if (this.props.dog.adoption === 'reserve') {
+      this.props.onDogSelect(dog);
+    } else {
+      swal(' This dog have already been reserved ! ');
+    }
   };
 
   render() {

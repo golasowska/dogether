@@ -17,7 +17,13 @@ class Messages extends React.Component {
       }
     }
     return _.map(this.props.messages, message => {
-      return <MessageData key={message.key} message={message} />;
+      return (
+        <MessageData
+          removeMessage={this.props.removeMessage}
+          key={message.key}
+          message={message}
+        />
+      );
     });
   };
 

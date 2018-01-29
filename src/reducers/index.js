@@ -19,6 +19,9 @@ import ModalReducer from './modal';
 import SendAdoptionMessage from './sendAdoptMessage';
 import DisplayMessages from './displayMessages';
 import VetLocation from './vetLocation';
+import RemoveMessage from './removeMessage';
+import DisplayMyArticles from './displayMyArticles';
+import RemoveMyArticle from './removeMyArticle';
 
 const rootReducer = combineReducers({
   form: FormReducer,
@@ -40,7 +43,10 @@ const rootReducer = combineReducers({
   modal: ModalReducer,
   sendAdoptMessage: SendAdoptionMessage,
   displayMessages: DisplayMessages,
-  vetLocation: VetLocation
+  vetLocation: VetLocation,
+  removeMessage: RemoveMessage,
+  displayMyArticles: DisplayMyArticles,
+  removeMyArticle: RemoveMyArticle
 });
 
 export default rootReducer;
