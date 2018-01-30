@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Navigation from './Navigation';
 import { Link } from 'react-router-dom';
 import * as Actions from '../actions';
-import ArticleData from '../components/ArticleData';
+import ArticlePreview from './ArticlePreview';
 import HomeGallery from './HomeGallery';
 
 class Home extends React.Component {
@@ -19,7 +19,7 @@ class Home extends React.Component {
       }
     }
     return _.map(this.props.articles, article => {
-      return <ArticleData key={article.key} article={article} />;
+      return <ArticlePreview key={article.key} article={article} />;
     });
   };
 

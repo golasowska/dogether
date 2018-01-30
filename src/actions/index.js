@@ -25,6 +25,7 @@ export const VET_LOCATION = 'VET_LOCATION';
 export const REMOVE_MESSAGE = 'REMOVE_MESSAGE';
 export const DISPLAY_MY_ARTICLES = 'DISPLAY_MY_ARTICLES';
 export const REMOVE_MY_ARTICLE = 'REMOVE_MY_ARTICLE';
+export const SEND_DATA_TO_ARTICLE_DATA = 'SEND_DATA_TO_ARTICLE_DATA';
 
 const config = {
   apiKey: 'AIzaSyDjmyqfb-Olrz8xpTzK6B5Ry_x29Ut7dW4',
@@ -424,6 +425,15 @@ export function removeArticle(key) {
     artDatabase.child(key).remove();
     dispatch({
       type: REMOVE_MY_ARTICLE
+    });
+  };
+}
+
+export function sendDataToArticleData(article) {
+  return function(dispatch) {
+    dispatch({
+      type: SEND_DATA_TO_ARTICLE_DATA,
+      payload: article
     });
   };
 }
