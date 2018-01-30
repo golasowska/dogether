@@ -1,5 +1,5 @@
 import React from 'react';
-import PreviewPicture from './PreviewPicture';
+import PreviewPictureArticle from './PreviewPictureArticle';
 import { Link } from 'react-router-dom';
 import * as Actions from '../actions';
 import { connect } from 'react-redux';
@@ -11,12 +11,15 @@ class ArticlePreview extends React.Component {
   render() {
     const { title, picture } = this.props.article;
     return (
-      <div>
-        <div>
-          <h4>{title} </h4>
+      <div className="position-relative col col-md-5 d-inline-block">
+        <div className="text-center">
+          <h3 className="position-absolute preview-title">{title} </h3>
         </div>
-        <Link to="/articledata" onClick={this.handleClick}>
-          <PreviewPicture pictureUrl={picture} />
+        <Link
+          to={`/articledata/${this.props.article.key}`}
+          onClick={this.handleClick}
+        >
+          <PreviewPictureArticle pictureUrl={picture} />
         </Link>
       </div>
     );

@@ -29,7 +29,9 @@ class Home extends React.Component {
       <div>
         <Navigation />
         <HomeGallery />
-        <div>{this.showArticle()}</div>
+        <div className="row justify-content-center mt-5">
+          {this.showArticle()}
+        </div>
         <Link
           className="btn btn-info btn-lg btn-block mt-4 mb-4"
           to="/newarticle"

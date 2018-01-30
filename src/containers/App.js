@@ -122,7 +122,7 @@ class App extends React.Component {
           />
           <PrivateRoute
             authenticated={this.props.authenticated}
-            path="/articledata"
+            path="/articledata/:key"
             component={ArticleData}
           />
         </div>

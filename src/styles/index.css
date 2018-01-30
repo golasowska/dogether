@@ -77,3 +77,17 @@ body {
   margin: 0 auto;
   width: 80%;
 }
+
+.preview-title {
+  top: 40%;
+  background: rgba(255, 255, 255, 0.4);
+  margin: 0 auto;
+  width: 100%;
+  background-size: contain;
+  left: 0;
+  padding: 15px;
+}
+
+.photo-article-preview:hover {
+  opacity: 0.75;
+}
