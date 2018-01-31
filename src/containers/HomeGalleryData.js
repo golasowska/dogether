@@ -6,7 +6,7 @@ export default class HomeGalleryData extends React.Component {
     const { name, picture } = this.props.pet;
     return (
       <div className="d-inline-block text-center mt-4 mb-4">
-        <div className="card bg-light text-center">
+        <div className="card bg-light text-center mt-3 mb-3 ml-3 mr-3">
           <h4 className="bg-light card-header card-title">{name}</h4>
           <div className="mt-2 mb-2 ml-2 mr-2">
             <PreviewPictureSlide className="" pictureUrl={picture} />

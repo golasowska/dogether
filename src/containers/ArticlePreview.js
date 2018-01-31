@@ -11,7 +11,7 @@ class ArticlePreview extends React.Component {
   render() {
     const { title, picture } = this.props.article;
     return (
-      <div className="position-relative col col-md-5 d-inline-block">
+      <div className="position-relative d-inline-block col-md-5">
         <div className="text-center">
           <h3 className="position-absolute preview-title">{title} </h3>
         </div>

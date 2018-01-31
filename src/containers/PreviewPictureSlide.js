@@ -20,8 +20,8 @@ const PreviewPictureSlide = props => {
   } else {
     return (
       <img
-        style={{ height: '400px' }}
-        className="img-fluid mb-2 mt-2"
+        style={{ height: '300px' }}
+        className="img-fluid"
         src={pictureUrl}
         alt="dogs"
       />

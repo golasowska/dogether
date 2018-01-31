@@ -53,7 +53,7 @@ class App extends React.Component {
   render() {
     return (
       <ConnectedRouter history={history}>
-        <div className="container">
+        <div>
           <PublicRoute
             authenticated={this.props.authenticated}
             exact

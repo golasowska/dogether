@@ -28,21 +28,9 @@ class HomeGallery extends React.Component {
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
-      autoplay: true,
-      pauseOnHover: true,
-      variableWidth: true,
-      centerMode: true
-      // responsive: [
-      //   { breakpoint: 768, settings: { slidesToShow: 3 } },
-      //   { breakpoint: 1024, settings: { slidesToShow: 5 } },
-      //   { breakpoint: 100000, settings: 'unslick' }
-      // ]
+      responsive: [{ breakpoint: 500, settings: { slidesToShow: 1 } }]
     };
-    return (
-      <div>
-        <Slider {...settings}>{this.renderGallery()}</Slider>
-      </div>
-    );
+    return <Slider {...settings}>{this.renderGallery()}</Slider>;
   }
 }
 

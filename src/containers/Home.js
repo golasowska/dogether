@@ -28,16 +28,20 @@ class Home extends React.Component {
     return (
       <div>
         <Navigation />
-        <HomeGallery />
-        <div className="row justify-content-center mt-5">
-          {this.showArticle()}
+        <div className="container">
+          <div className="mt-2 mb-2">
+            <HomeGallery />
+          </div>
+          <div className="row justify-content-center mt-5">
+            {this.showArticle()}
+          </div>
+          <Link
+            className="btn btn-info btn-lg btn-block mt-4 mb-4"
+            to="/newarticle"
+          >
+            Add new article
+          </Link>
         </div>
-        <Link
-          className="btn btn-info btn-lg btn-block mt-4 mb-4"
-          to="/newarticle"
-        >
-          Add new article
-        </Link>
       </div>
     );
   }
