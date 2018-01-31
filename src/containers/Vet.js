@@ -33,12 +33,17 @@ class Vet extends React.Component {
     return (
       <div>
         <Navigation />
-        <Link className="btn btn-info btn-lg btn-block mt-4 mb-4" to="/addvet">
-          Add a vet
-        </Link>
-        <div className="text-center">{this.showVet()}</div>
-        <div className="justify-content-center">
-          <GoogleMap vetLoc={this.props.vetLoc} />
+        <div classname="container">
+          <Link
+            className="btn btn-info btn-lg btn-block mt-4 mb-4"
+            to="/addvet"
+          >
+            Add a vet
+          </Link>
+          <div className="text-center">{this.showVet()}</div>
+          <div className="justify-content-center">
+            <GoogleMap vetLoc={this.props.vetLoc} />
+          </div>
         </div>
       </div>
     );

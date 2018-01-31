@@ -34,20 +34,22 @@ class DogFriendly extends React.Component {
     return (
       <div>
         <Navigation />
-        <Link
-          className="btn btn-info btn-lg btn-block mt-4 mb-4"
-          to="/adddogfriendly"
-        >
-          Add a place
-        </Link>
-        <SearchBar />
-        <button
-          className="btn btn-info btn-lg btn-block mt-4 mb-4"
-          onClick={this.showAllData}
-        >
-          Show all places
-        </button>
-        <div className="text-center">{this.showDogFriendly()}</div>
+        <div className="container">
+          <Link
+            className="btn btn-info btn-lg btn-block mt-4 mb-4"
+            to="/adddogfriendly"
+          >
+            Add a place
+          </Link>
+          <SearchBar />
+          <button
+            className="btn btn-info btn-lg btn-block mt-4 mb-4"
+            onClick={this.showAllData}
+          >
+            Show all places
+          </button>
+          <div className="text-center">{this.showDogFriendly()}</div>
+        </div>
       </div>
     );
   }

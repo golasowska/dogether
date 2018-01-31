@@ -8,13 +8,15 @@ export default class MyAccount extends React.Component {
     return (
       <div>
         <Navigation />
-        <div>
-          <h3 className="alert alert-light"> Messages:</h3>
-          <Messages />
-        </div>
-        <div>
-          <h3 className="alert alert-light"> My articles:</h3>
-          <MyArticles />
+        <div className="container">
+          <div>
+            <h3 className="alert alert-light"> Messages:</h3>
+            <Messages />
+          </div>
+          <div>
+            <h3 className="alert alert-light"> My articles:</h3>
+            <MyArticles />
+          </div>
         </div>
       </div>
     );

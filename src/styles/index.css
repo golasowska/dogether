@@ -26,6 +26,13 @@ body {
   display: inline-block;
 }
 
+@media only screen and (min-width: 992px) {
+  .navbar-collapse {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
 @media only screen and (min-width: 400px) {
   .dog-list {
     -moz-column-count: 2;

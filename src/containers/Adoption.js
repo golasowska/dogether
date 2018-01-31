@@ -38,18 +38,20 @@ class Adoption extends React.Component {
     return (
       <div>
         <Navigation />
-        <Link
-          className="btn btn-info btn-lg btn-block mt-4 mb-4"
-          to="/addadoption"
-        >
-          Add for adoption
-        </Link>
-        <DogModal
-          modalIsOpen={this.props.modalIsOpen}
-          selectedDog={this.props.selectedDog}
-          onRequestClose={this.closeModal}
-        />
-        <div className="dog-list">{this.showAdoption()}</div>
+        <div className="container">
+          <Link
+            className="btn btn-info btn-lg btn-block mt-4 mb-4"
+            to="/addadoption"
+          >
+            Add for adoption
+          </Link>
+          <DogModal
+            modalIsOpen={this.props.modalIsOpen}
+            selectedDog={this.props.selectedDog}
+            onRequestClose={this.closeModal}
+          />
+          <div className="dog-list">{this.showAdoption()}</div>
+        </div>
       </div>
     );
   }

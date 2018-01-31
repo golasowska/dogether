@@ -27,13 +27,15 @@ class Gallery extends React.Component {
     return (
       <div>
         <Navigation />
-        <Link
-          className="btn btn-info btn-lg btn-block mt-4 mb-4"
-          to="/addgallery"
-        >
-          Add your pet
-        </Link>
-        <div className="dog-list">{this.showGallery()}</div>
+        <div className="container">
+          <Link
+            className="btn btn-info btn-lg btn-block mt-4 mb-4"
+            to="/addgallery"
+          >
+            Add your pet
+          </Link>
+          <div className="dog-list">{this.showGallery()}</div>
+        </div>
       </div>
     );
   }
