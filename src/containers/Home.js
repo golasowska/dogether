@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import * as Actions from '../actions';
 import ArticlePreview from './ArticlePreview';
 import HomeGallery from './HomeGallery';
+import Footer from './Footer';
 
 class Home extends React.Component {
   componentDidMount = () => {
@@ -41,6 +42,7 @@ class Home extends React.Component {
           >
             Add new article
           </Link>
+          <Footer />
         </div>
       </div>
     );
