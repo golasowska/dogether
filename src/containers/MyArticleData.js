@@ -7,19 +7,18 @@ export default class MyArticleData extends React.Component {
   };
 
   render() {
-    const { title, content, picture } = this.props.article;
+    const { title, picture } = this.props.article;
     return (
-      <div>
-        <div>
-          <h4>Title: {title} </h4>
+      <div className="d-inline-block">
+        <div className="card-vet card bg-light mb-3 text-left">
+          <h4 className="card-header card-title bg-info">{title} </h4>
+          <div className="card-body">
+            <PreviewPicture pictureUrl={picture} />
+            <button className="btn btn-info" onClick={this.removeArticle}>
+              Remove from server
+            </button>
+          </div>
         </div>
-        <div>
-          <div className="text-justify">Content : {content}</div>
-        </div>
-        <div>
-          <PreviewPicture pictureUrl={picture} />
-        </div>
-        <button onClick={this.removeArticle}>Remove from server</button>
       </div>
     );
   }

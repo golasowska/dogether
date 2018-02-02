@@ -31,7 +31,7 @@ class Messages extends React.Component {
     return (
       <div>
         {this.props.messages ? (
-          <div className="row justify-content-around">
+          <div className="row justify-content-center">
             {this.showMessages()}
           </div>
         ) : (

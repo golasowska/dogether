@@ -29,10 +29,10 @@ class Home extends React.Component {
     return (
       <div>
         <Navigation />
+        <div className="mt-2 mb-2">
+          <HomeGallery />
+        </div>
         <div className="container">
-          <div className="mt-2 mb-2">
-            <HomeGallery />
-          </div>
           <div className="row justify-content-center mt-5">
             {this.showArticle()}
           </div>
@@ -50,7 +50,7 @@ class Home extends React.Component {
 }
 
 function mapStateToProps(state) {
-  console.log('artykuly', state.displayart);
+  // console.log('artykuly', state.displayart);
   return {
     articles: state.displayart
   };

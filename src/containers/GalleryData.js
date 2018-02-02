@@ -18,11 +18,13 @@ class GalleryData extends React.Component {
   };
 
   render() {
+    const colors = ['info', 'danger', 'warning', 'primary', 'secondary'];
+    let randomColor = colors[Math.floor(Math.random() * colors.length)];
     const { name, picture, votes } = this.props.pet;
     return (
       <div className="d-inline-block text-center">
-        <div className="d-inline-block card bg-light mb-3 text-center">
-          <h4 className="card-header card-title">{name}</h4>
+        <div className={`d-inline-block card bg-light mb-3 text-center`}>
+          <h4 className={`card-header card-title bg-${randomColor}`}>{name}</h4>
           <div className="card-body text-center">
             <PreviewPicture pictureUrl={picture} />
           </div>

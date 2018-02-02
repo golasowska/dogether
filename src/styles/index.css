@@ -18,6 +18,12 @@ body {
   /*height: 350px;*/
 }
 
+.card-message {
+  height: 300px;
+  overflow: scroll;
+  text-overflow: ellipsis;
+}
+
 .dog-list {
   column-gap: 1.5em;
   font-size: 0.85em;
@@ -57,6 +63,14 @@ body {
   }
 }
 
+@media only screen and (min-width: 767px) {
+  .my-articles-list {
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    column-count: 2;
+  }
+}
+
 /*@media only screen and (min-width: 1199px) {
   .dog-list {
     -moz-column-count: 5;
@@ -65,7 +79,7 @@ body {
   }
 }*/
 
-.dog-item {
+/*.dog-item {
   box-shadow: 2px 2px 4px 0 #ccc;
   box-sizing: border-box;
   display: inline-block;
@@ -73,7 +87,7 @@ body {
   padding: 1em;
   position: relative;
   width: 100%;
-}
+}*/
 
 .dog:hover {
   opacity: 0.75;

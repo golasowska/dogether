@@ -11,11 +11,17 @@ export default class MyAccount extends React.Component {
         <Navigation />
         <div className="container">
           <div>
-            <h3 className="alert alert-light"> Messages:</h3>
+            <h4 className="alert alert-light mt-3 mb-5 text-dark text-center text-uppercase">
+              {' '}
+              Messages:
+            </h4>
             <Messages />
           </div>
           <div>
-            <h3 className="alert alert-light"> My articles:</h3>
+            <h4 className="alert alert-light text-dark text-center text-uppercase mb-5 mt-3">
+              {' '}
+              My articles:
+            </h4>
             <MyArticles />
           </div>
         </div>

@@ -8,14 +8,19 @@ export default class MessageData extends React.Component {
   render() {
     const { name, phone, message } = this.props.message;
     return (
-      <div className="card text-white bg-info mt-3 col-md-5 d-inline-block">
-        <div className="card-header bg-info">Contact : {phone}</div>
-        <div className="card-body" />
-        <h5 className="card-title mb-4">From : {name}</h5>
-        <p className="card-text mb-4">{message}</p>
-        <button className="btn btn-light" onClick={this.handleRemove}>
-          Remove
-        </button>
+      <div className="mb-3 text-left mt-3 col-md-5 d-inline-block">
+        <div className="card-message card bg-light ">
+          <h4 className="card-header card-title bg-danger text-white">
+            Contact : {phone}
+          </h4>
+          <div className="card-body">
+            <h5 className="card-title mb-4">From : {name}</h5>
+            <p className="card-text mb-4 font-italic">{message}</p>
+            <button className="btn btn-danger" onClick={this.handleRemove}>
+              Remove
+            </button>
+          </div>
+        </div>
       </div>
     );
   }

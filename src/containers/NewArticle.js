@@ -54,7 +54,7 @@ class NewArticle extends React.Component {
       <div>
         <Navigation />
         <div className="container">
-          <div className="col-md-6 col-md-offset-3">
+          <div className="col-md-6 col-md-offset-3 mx-auto">
             <h2 className="text-center">New Article</h2>
 
             <form onSubmit={this.props.handleSubmit(this.handleFormSubmit)}>

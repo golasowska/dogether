@@ -31,9 +31,7 @@ class MyArticles extends React.Component {
     return (
       <div>
         {this.props.myArticles ? (
-          <div className="row justify-content-around">
-            {this.showMyArticles()}
-          </div>
+          <div className="my-articles-list">{this.showMyArticles()}</div>
         ) : (
           <div className="alert alert-info">You have no articles</div>
         )}
