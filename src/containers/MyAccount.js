@@ -2,6 +2,7 @@ import React from 'react';
 import Navigation from './Navigation';
 import Messages from './Messages';
 import MyArticles from './MyArticles';
+import Footer from './Footer';
 
 export default class MyAccount extends React.Component {
   render() {
@@ -18,6 +19,7 @@ export default class MyAccount extends React.Component {
             <MyArticles />
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import Navigation from './Navigation';
+import Footer from './Footer';
 
 class ArticleData extends React.Component {
   render() {
@@ -11,20 +12,23 @@ class ArticleData extends React.Component {
     return (
       <div>
         <Navigation />
-        <div className="card text-center">
-          <div className="card-header">
-            <h4 className="card-title">{title} </h4>
-          </div>
-          <div className="card-body">
-            <p className="text-body text-justify">{content}</p>
-            <div>
-              <PreviewPicture pictureUrl={picture} />
+        <div className="container">
+          <div className="card text-center">
+            <div className="card-header">
+              <h4 className="card-title">{title} </h4>
             </div>
-            <Link to="/home" className="btn btn-info">
-              Go back
-            </Link>
+            <div className="card-body">
+              <p className="text-body text-justify">{content}</p>
+              <div>
+                <PreviewPicture pictureUrl={picture} />
+              </div>
+              <Link to="/home" className="btn btn-info">
+                Go back
+              </Link>
+            </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

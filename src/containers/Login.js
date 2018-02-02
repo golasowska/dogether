@@ -53,7 +53,7 @@ class Login extends React.Component {
   render() {
     return (
       <div className="container">
-        <div className="col-md-6 col-md-offset-3">
+        <div className="col-md-6 col-md-offset-3 mx-auto">
           <h2 className="text-center">Log In</h2>
 
           {this.renderAuthenticationError()}

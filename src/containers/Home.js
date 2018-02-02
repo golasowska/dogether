@@ -42,8 +42,8 @@ class Home extends React.Component {
           >
             Add new article
           </Link>
-          <Footer />
         </div>
+        <Footer />
       </div>
     );
   }

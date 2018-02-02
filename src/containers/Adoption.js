@@ -7,6 +7,7 @@ import _ from 'lodash';
 import Navigation from './Navigation';
 import AdoptionData from './AdoptionData';
 import DogModal from './DogModal';
+import Footer from './Footer';
 
 class Adoption extends React.Component {
   componentDidMount = () => {
@@ -52,6 +53,7 @@ class Adoption extends React.Component {
           />
           <div className="dog-list">{this.showAdoption()}</div>
         </div>
+        <Footer />
       </div>
     );
   }

@@ -3,6 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import * as Actions from '../actions';
 import Navigation from './Navigation';
+import Footer from './Footer';
 
 const validate = values => {
   const errors = {};
@@ -58,9 +59,9 @@ class AddVet extends React.Component {
     return (
       <div>
         <Navigation />
-        <div className="container">
-          <div className="col-md-6 col-md-offset-3">
-            <h2 className="text-center">Add a vet</h2>
+        <div className="container ">
+          <div className="col-md-6 col-md-offset-3 mx-auto">
+            <h2 className="text-center mt-5 mb-3">Add a vet</h2>
 
             <form onSubmit={this.props.handleSubmit(this.handleFormSubmit)}>
               <Field
@@ -105,6 +106,7 @@ class AddVet extends React.Component {
             </form>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

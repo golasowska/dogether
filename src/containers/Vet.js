@@ -1,5 +1,4 @@
 import React from 'react';
-import Navigation from './Navigation';
 import { Link } from 'react-router-dom';
 import * as Actions from '../actions';
 import { connect } from 'react-redux';
@@ -7,6 +6,8 @@ import _ from 'lodash';
 
 import VetData from './VetData';
 import GoogleMap from './GoogleMap';
+import Navigation from './Navigation';
+import Footer from './Footer';
 
 class Vet extends React.Component {
   componentDidMount = () => {
@@ -33,7 +34,7 @@ class Vet extends React.Component {
     return (
       <div>
         <Navigation />
-        <div classname="container">
+        <div className="container">
           <Link
             className="btn btn-info btn-lg btn-block mt-4 mb-4"
             to="/addvet"
@@ -45,6 +46,7 @@ class Vet extends React.Component {
             <GoogleMap vetLoc={this.props.vetLoc} />
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

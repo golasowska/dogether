@@ -2,8 +2,10 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import * as Actions from '../actions';
+
 import Navigation from './Navigation';
 import FileField from './FileField';
+import Footer from './Footer';
 
 const validate = values => {
   const errors = {};
@@ -80,6 +82,7 @@ class NewArticle extends React.Component {
             </form>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

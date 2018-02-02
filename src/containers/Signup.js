@@ -61,7 +61,7 @@ class Signup extends React.Component {
   render() {
     return (
       <div className="container">
-        <div className="col-md-6 col-md-offset-3">
+        <div className="col-md-6 col-md-offset-3 mx-auto">
           <h2 className="text-center">Sign Up</h2>
 
           {this.renderAuthenticationError()}

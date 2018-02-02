@@ -6,6 +6,7 @@ import * as Actions from '../actions';
 
 import GalleryData from './GalleryData';
 import Navigation from './Navigation';
+import Footer from './Footer';
 
 class Gallery extends React.Component {
   componentDidMount = () => {
@@ -36,6 +37,7 @@ class Gallery extends React.Component {
           </Link>
           <div className="dog-list">{this.showGallery()}</div>
         </div>
+        <Footer />
       </div>
     );
   }

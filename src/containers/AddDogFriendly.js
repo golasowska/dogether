@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as Actions from '../actions';
 
 import Navigation from './Navigation';
+import Footer from './Footer';
 
 const tags = ['restaurant', 'breakfast', 'coffee', 'park'];
 
@@ -74,8 +75,8 @@ class AddDogFriendly extends React.Component {
       <div>
         <Navigation />
         <div className="container">
-          <div className="col-md-6 col-md-offset-3">
-            <h2 className="mt-5">Add a place</h2>
+          <div className="col-md-6 col-md-offset-3 mx-auto">
+            <h2 className="mt-5 mb-3">Add a place</h2>
 
             <form onSubmit={this.props.handleSubmit(this.handleFormSubmit)}>
               <Field
@@ -108,6 +109,7 @@ class AddDogFriendly extends React.Component {
             </form>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

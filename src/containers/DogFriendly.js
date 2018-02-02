@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Navigation from './Navigation';
 import * as Actions from '../actions';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
+import Navigation from './Navigation';
 import DogFriendlyData from './DogFriendlyData';
 import SearchBar from './SearchBar';
+import Footer from './Footer';
 
 class DogFriendly extends React.Component {
   componentDidMount = () => {
@@ -50,6 +51,7 @@ class DogFriendly extends React.Component {
           </button>
           <div className="text-center">{this.showDogFriendly()}</div>
         </div>
+        <Footer />
       </div>
     );
   }

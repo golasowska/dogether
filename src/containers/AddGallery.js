@@ -5,6 +5,7 @@ import * as Actions from '../actions';
 import FileField from './FileField';
 
 import Navigation from './Navigation';
+import Footer from './Footer';
 
 const validate = values => {
   const errors = {};
@@ -45,8 +46,8 @@ class AddGallery extends React.Component {
       <div>
         <Navigation />
         <div className="container">
-          <div className="col-md-6 col-md-offset-3">
-            <h2 className="text-center">Add your pet</h2>
+          <div className="col-md-6 col-md-offset-3 mx-auto">
+            <h2 className="text-center mt-5 mb-3">Add your pet</h2>
 
             <form onSubmit={this.props.handleSubmit(this.handleFormSubmit)}>
               <Field
@@ -67,6 +68,7 @@ class AddGallery extends React.Component {
             </form>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }
