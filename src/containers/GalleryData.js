@@ -13,7 +13,7 @@ class GalleryData extends React.Component {
       this.props.blockVote(false);
       setTimeout(() => {
         this.props.blockVote(true);
-      }, 10000);
+      }, 100000);
     }
   };
 

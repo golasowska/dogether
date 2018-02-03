@@ -21,7 +21,6 @@ const validate = values => {
 class Login extends React.Component {
   handleFormSubmit = values => {
     this.props.signInUser(values);
-    console.log('zalogowany');
   };
 
   renderField = ({ input, label, type, meta: { touched, error } }) => (

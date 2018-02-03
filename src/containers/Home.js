@@ -25,7 +25,6 @@ class Home extends React.Component {
   };
 
   render() {
-    // console.log('propsiki title', this.props.articles);
     return (
       <div>
         <Navigation />
@@ -50,7 +49,6 @@ class Home extends React.Component {
 }
 
 function mapStateToProps(state) {
-  // console.log('artykuly', state.displayart);
   return {
     articles: state.displayart
   };

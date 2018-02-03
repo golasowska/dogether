@@ -9,8 +9,6 @@ import Footer from './Footer';
 
 const validate = values => {
   const errors = {};
-  // console.log('dlugosc validate', values.title.length);
-  // console.log('valius', values.title);
 
   if (!values.title) {
     errors.title = 'Please enter a title.';

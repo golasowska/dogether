@@ -14,7 +14,6 @@ class FileField extends React.Component {
     let reader = new FileReader();
     let file = event.target.files[0];
     reader.onloadend = () => {
-      console.log(file);
       this.setState({
         picture: file,
         pictureUrl: reader.result
@@ -24,15 +23,6 @@ class FileField extends React.Component {
   }
   render() {
     const { input, label, meta: { touched, error } } = this.props;
-    console.log(
-      'propsiki w file field ',
-      'touched',
-      touched,
-      'error',
-      error,
-      'input',
-      input
-    );
     delete input.value;
     return (
       <div>

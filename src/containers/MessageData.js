@@ -9,7 +9,7 @@ export default class MessageData extends React.Component {
     const { name, phone, message } = this.props.message;
     return (
       <div className="mb-3 text-left mt-3 col-md-5 d-inline-block">
-        <div className="card-message card bg-light ">
+        <div className="card-scroll card bg-light ">
           <h4 className="card-header card-title bg-danger text-white">
             Contact : {phone}
           </h4>

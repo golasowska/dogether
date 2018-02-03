@@ -60,7 +60,6 @@ class Adoption extends React.Component {
 }
 
 function mapStateToProps(state) {
-  console.log('stejt adoption', state.displayAdoption);
   return {
     adoption: state.displayAdoption,
     modalIsOpen: state.modal.modalIsOpen,

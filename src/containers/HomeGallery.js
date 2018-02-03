@@ -3,6 +3,8 @@ import Slider from 'react-slick';
 import { connect } from 'react-redux';
 import * as Actions from '../actions';
 import _ from 'lodash';
+import { Link } from 'react-router-dom';
+
 import HomeGalleryData from './HomeGalleryData';
 
 class HomeGallery extends React.Component {
@@ -18,8 +20,10 @@ class HomeGallery extends React.Component {
     }
     return _.map(this.props.photos, pet => {
       return (
-        <div>
-          <HomeGalleryData key={pet.key} pet={pet} />
+        <div key={pet.key}>
+          <Link to="/gallery">
+            <HomeGalleryData pet={pet} />
+          </Link>
         </div>
       );
     });

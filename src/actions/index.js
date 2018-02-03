@@ -323,7 +323,6 @@ export function displayAdoption() {
 }
 
 export function reserveData(data, key) {
-  // console.log('action reserve', data);
   return function(dispatch) {
     adoptionDatabase.child(key).update({
       adoption: data
@@ -360,7 +359,6 @@ export function adoptMessage(values, ownerUid) {
       message,
       ownerUid
     });
-    // console.log('data w send message', data);
     dispatch({
       type: SEND_ADOPTION_MESSAGE,
       payload: data

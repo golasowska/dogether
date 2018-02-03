@@ -7,7 +7,7 @@ export default class DogFriendlyData extends React.Component {
     let randomColor = colors[Math.floor(Math.random() * colors.length)];
     return (
       <div className="col col-md-5 d-inline-block">
-        <div className="card-vet card bg-light mb-3 text-left">
+        <div className="card-scroll card bg-light mb-3 text-left">
           <div className={`card-header bg-${randomColor}`}>Place:</div>
           <div className="card-body">
             <h4 className="card-title">{place}</h4>

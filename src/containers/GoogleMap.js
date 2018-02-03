@@ -43,26 +43,13 @@ class GoogleMap extends React.Component {
     //   );
     // }
 
-    const style = {
-      width: '75%',
-      height: '50%'
-      // position: 'relative'
-    };
-
     return (
       <Map
         google={this.props.google}
-        style={style}
-        className={'map'}
         centerAroundCurrentLocation={true}
-        // initialCenter={{
-        //   lat: 50.0740676,
-        //   lng: 19.932697599999983
-        // }}
         center={{ lat: this.props.vetLoc[1], lng: this.props.vetLoc[2] }}
         zoom={18}
         onClick={this.onMapClicked}
-        // mapCenter={this.props.google.maps.LatLng()}
       >
         <Marker
           title={this.props.vetLoc[0]}

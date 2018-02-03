@@ -58,7 +58,6 @@ class DogFriendly extends React.Component {
 }
 
 function mapStateToProps(state) {
-  console.log('dog friendlyyy', state.displayDogFriendly);
   return {
     dogFriendly: state.displayDogFriendly
   };

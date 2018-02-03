@@ -15,11 +15,7 @@ body {
   flex-direction: row;
 }
 
-.card-vet {
-  /*height: 350px;*/
-}
-
-.card-message {
+.card-scroll {
   height: 300px;
   overflow: scroll;
   text-overflow: ellipsis;
@@ -39,14 +35,6 @@ body {
     justify-content: flex-end;
   }
 }
-
-/*@media only screen and (min-width: 400px) {
-  .dog-list {
-    -moz-column-count: 2;
-    -webkit-column-count: 2;
-    column-count: 2;
-  }
-}*/
 
 @media only screen and (min-width: 767px) {
   .dog-list {
@@ -71,24 +59,6 @@ body {
     column-count: 2;
   }
 }
-
-/*@media only screen and (min-width: 1199px) {
-  .dog-list {
-    -moz-column-count: 5;
-    -webkit-column-count: 5;
-    column-count: 5;
-  }
-}*/
-
-/*.dog-item {
-  box-shadow: 2px 2px 4px 0 #ccc;
-  box-sizing: border-box;
-  display: inline-block;
-  margin: 0 0 1.5em;
-  padding: 1em;
-  position: relative;
-  width: 100%;
-}*/
 
 .dog:hover {
   opacity: 0.75;
@@ -135,4 +105,14 @@ nav.navbar {
   .photo-article-preview {
     height: 400px;
   }
+}
+
+.map-parent {
+  position: relative;
+  height: 400px;
+  width: 80%;
+}
+
+.search-dog-friendly {
+  min-width: 300px;
 }

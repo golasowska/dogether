@@ -41,7 +41,6 @@ class MyArticles extends React.Component {
 }
 
 function mapStateToProps(state) {
-  console.log('prpsy my articles', state.displayMyArticles);
   return {
     myArticles: state.displayMyArticles
   };
