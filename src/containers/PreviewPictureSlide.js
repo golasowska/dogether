@@ -7,7 +7,7 @@ const PreviewPictureSlide = props => {
     return (
       <div
         style={{
-          height: '500px',
+          height: '300px',
           borderWidth: '.1rem',
           borderStyle: 'solid',
           borderColor: 'grey'
@@ -21,7 +21,7 @@ const PreviewPictureSlide = props => {
     return (
       <img
         style={{ height: '300px' }}
-        className="img-fluid"
+        className="img-fluid "
         src={pictureUrl}
         alt="dogs"
       />

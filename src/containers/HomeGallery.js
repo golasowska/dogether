@@ -17,7 +17,11 @@ class HomeGallery extends React.Component {
       }
     }
     return _.map(this.props.photos, pet => {
-      return <HomeGalleryData key={pet.key} pet={pet} />;
+      return (
+        <div>
+          <HomeGalleryData key={pet.key} pet={pet} />
+        </div>
+      );
     });
   };
 
@@ -26,9 +30,13 @@ class HomeGallery extends React.Component {
       dots: true,
       infinite: true,
       speed: 500,
-      slidesToShow: 1,
+      variableWidth: true,
+      slidesToShow: 2,
       slidesToScroll: 1,
-      responsive: [{ breakpoint: 500, settings: { slidesToShow: 1 } }]
+      responsive: [
+        { breakpoint: 850, settings: { slidesToShow: 1 } },
+        { breakpoint: 430, settings: { variableWidth: false, slidesToShow: 1 } }
+      ]
     };
     return <Slider {...settings}>{this.renderGallery()}</Slider>;
   }

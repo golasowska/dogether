@@ -29,7 +29,7 @@ class Home extends React.Component {
     return (
       <div>
         <Navigation />
-        <div className="mt-2 mb-2">
+        <div className="mb-5">
           <HomeGallery />
         </div>
         <div className="container">

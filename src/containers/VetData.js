@@ -36,10 +36,14 @@ export default class VetData extends React.Component {
 
   render() {
     const { vet, city, streetName, streetNumber, phone, www } = this.props.vet;
+    const colors = ['info', 'danger', 'warning', 'primary', 'secondary'];
+    let randomColor = colors[Math.floor(Math.random() * colors.length)];
     return (
       <div className="col col-md-5 d-inline-block">
         <div className="card-vet card bg-light mb-3 text-left">
-          <div className="card-header card-title">{vet}</div>
+          <div className={`card-header card-title bg-${randomColor}`}>
+            {vet}
+          </div>
           <div className="card-body">
             <p className="card-text">City: {city}</p>
             <p className="card-text">

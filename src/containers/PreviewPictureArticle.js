@@ -22,8 +22,6 @@ const PreviewPictureArticle = props => {
       <div
         className="photo-article-preview mb-5"
         style={{
-          height: '400px',
-          width: '100%',
           background: `url(${pictureUrl})`,
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover'

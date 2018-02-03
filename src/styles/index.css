@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 65px 0 0;
   font-family: sans-serif;
+  height: 100%;
 }
 
 #signout {
@@ -122,5 +123,16 @@ nav.navbar {
 }
 
 .container {
-  min-height: 81vh;
+  padding-bottom: 55px;
+}
+
+.photo-article-preview {
+  height: 300px;
+  width: 100%;
+}
+
+@media only screen and (min-width: 577px) {
+  .photo-article-preview {
+    height: 400px;
+  }
 }

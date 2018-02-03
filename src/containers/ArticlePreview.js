@@ -11,14 +11,17 @@ class ArticlePreview extends React.Component {
   render() {
     const { title, picture } = this.props.article;
     return (
-      <div className="position-relative d-inline-block col-md-5">
-        <div className="text-center">
-          <h3 className="position-absolute preview-title">{title} </h3>
-        </div>
+      <div className="position-relative d-inline-block col-lg-6">
         <Link
           to={`/articledata/${this.props.article.key}`}
           onClick={this.handleClick}
         >
+          <div className="text-center">
+            <h3 className="position-absolute preview-title text-dark">
+              {title}{' '}
+            </h3>
+          </div>
+
           <PreviewPictureArticle pictureUrl={picture} />
         </Link>
       </div>

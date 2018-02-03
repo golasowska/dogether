@@ -13,7 +13,7 @@ class ArticleData extends React.Component {
       <div>
         <Navigation />
         <div className="container">
-          <div className="card text-center">
+          <div className="card text-center mt-3">
             <div className="card-header">
               <h4 className="card-title">{title} </h4>
             </div>

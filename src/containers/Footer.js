@@ -3,7 +3,10 @@ import React from 'react';
 export default class Footer extends React.Component {
   render() {
     return (
-      <ul className="nav navbar navbar-light bg-light d-flex justify-content-around mt-5 pt-3 pb-3">
+      <ul
+        style={{ position: 'fixed', bottom: '0', width: '100%' }}
+        className="footer nav navbar navbar-light bg-light d-flex justify-content-around mt-5 pt-3 pb-3"
+      >
         <li className="nav-item">
           <a
             rel="noopener noreferrer"

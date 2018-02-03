@@ -9,10 +9,12 @@ class Navigation extends React.Component {
   }
 
   render() {
+    const colors = ['info', 'danger', 'warning', 'primary', 'secondary'];
+    let randomColor = colors[Math.floor(Math.random() * colors.length)];
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
-          <Link to="/home" className="navbar-brand text-dark">
+          <Link to="/home" className={`navbar-brand text-${randomColor}`}>
             dogether
           </Link>
           <button
