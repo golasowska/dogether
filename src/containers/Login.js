@@ -80,6 +80,13 @@ class Login extends React.Component {
               Not a member? Register now!{' '}
             </Link>
           </form>
+          <h4 className="text-secondary mb-5 mt-5 text-center">
+            Welcome to the dog community. To join the group of dog lovers and
+            meet new friends register in our dog social network!
+          </h4>
+          <div className="text-center">
+            <i className="fa fa-paw fa-5x text-dark" aria-hidden="true" />
+          </div>
         </div>
       </div>
     );
