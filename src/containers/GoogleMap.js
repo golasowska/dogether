@@ -1,75 +1,60 @@
 import React from 'react';
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 
-class GoogleMap extends React.Component {
+/*global google*/
+
+export default class GoogleMap extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      lat: 50.0740676,
-      lng: 19.932697599999983,
-      showingInfoWindow: false,
-      activeMarker: {},
-      selectedPlace: {}
+      map: null
     };
   }
+  componentDidMount = () => {
+    this.initMap();
+  };
 
-  onMarkerClick = (props, marker, e) => {
+  initMap = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        let pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        map.setCenter(pos);
+      });
+    }
+    let map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15
+    });
     this.setState({
-      selectedPlace: props,
-      activeMarker: marker,
-      showingInfoWindow: true
+      map: map
     });
   };
 
-  onMapClicked = props => {
-    if (this.state.showingInfoWindow) {
-      this.setState({
-        showingInfoWindow: false,
-        activeMarker: null
-      });
-    }
+  geocodeAddress = (geocoder, resultsMap) => {
+    let address = this.props.vetLoc;
+    geocoder.geocode({ address: address }, function(results, status) {
+      if (status === 'OK') {
+        resultsMap.setCenter(results[0].geometry.location);
+        let marker = new google.maps.Marker({
+          map: resultsMap,
+          position: results[0].geometry.location
+        });
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
   };
 
   render() {
-    if (!this.props.google) {
-      return <div className="alert alert-info">Loading...</div>;
+    if (typeof this.props.vetLoc === 'string') {
+      let geocoder = new google.maps.Geocoder();
+      this.geocodeAddress(geocoder, this.state.map);
     }
-
-    // if (this.props.google && !this.props.vetLoc[1]) {
-    //   return (
-    //     <div className="alert alert-info">
-    //       Searching for data. Click the button again !
-    //     </div>
-    //   );
-    // }
-
     return (
-      <Map
-        google={this.props.google}
-        centerAroundCurrentLocation={true}
-        center={{ lat: this.props.vetLoc[1], lng: this.props.vetLoc[2] }}
-        zoom={18}
-        onClick={this.onMapClicked}
-      >
-        <Marker
-          title={this.props.vetLoc[0]}
-          name={this.props.vetLoc[0]}
-          position={{ lat: this.props.vetLoc[1], lng: this.props.vetLoc[2] }}
-          onClick={this.onMarkerClick}
-        />
-        <InfoWindow
-          marker={this.state.activeMarker}
-          visible={this.state.showingInfoWindow}
-        >
-          <div>
-            <h1>{this.props.vetLoc[0]}</h1>
-          </div>
-        </InfoWindow>
-      </Map>
+      <div className="d-flex justify-content-center">
+        <div id="map" />
+      </div>
     );
   }
 }
-
-export default GoogleApiWrapper({
-  apiKey: 'AIzaSyDDBeVS9help9v9lKS5_De_ddxGJH4wtzk'
-})(GoogleMap);

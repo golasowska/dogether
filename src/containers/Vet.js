@@ -41,7 +41,7 @@ class Vet extends React.Component {
             Add a vet
           </Link>
           <div className="text-center">{this.showVet()}</div>
-          <div className="justify-content-center map-parent mx-auto mt-5 mb-5">
+          <div className="justify-content-center mx-auto mt-5 mb-5">
             <GoogleMap vetLoc={this.props.vetLoc} />
           </div>
         </div>

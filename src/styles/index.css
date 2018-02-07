@@ -107,12 +107,11 @@ nav.navbar {
   }
 }
 
-.map-parent {
-  position: relative;
-  height: 400px;
-  width: 80%;
-}
-
 .search-dog-friendly {
   min-width: 300px;
+}
+
+#map {
+  height: 400px;
+  width: 80%;
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import geocoder from 'geocoder';
 
 export default class VetData extends React.Component {
   vetLocation = () => {
@@ -10,17 +9,7 @@ export default class VetData extends React.Component {
       ' ' +
       this.props.vet.streetNumber.toString();
 
-    geocoder.geocode(address, (err, results) => {
-      const data = Object.assign({}, results);
-      const data2 = Object.assign({}, data.results);
-      const data3 = Object.assign({}, data2[0]);
-      const data4 = Object.assign({}, data3.geometry);
-      const location = Object.assign({}, data4.location);
-      const lat = location.lat;
-      const lng = location.lng;
-      const geoLocation = [address, lat, lng];
-      this.props.vetLocation(geoLocation);
-    });
+    this.props.vetLocation(address);
   };
 
   render() {
